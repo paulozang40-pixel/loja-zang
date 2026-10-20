@@ -198,3 +198,13 @@ test('painel de pedidos exige senha', async () => {
   const r2 = await admin(new Request('https://x/api/admin/pedidos', { method: 'POST', headers: { 'x-senha': 'senha-forte-123' }, body: JSON.stringify({ id: idPedido, status: 'enviado', rastreio: 'AB123456789BR' }) }));
   assert.equal((await r2.json()).pedido.rastreio, 'AB123456789BR');
 });
+
+test('status mostra só se as chaves existem, nunca o valor', async () => {
+  const st = (await import('../netlify/functions/status.mjs')).default;
+  const j = await (await st(new Request('https://x/api/status'))).json();
+  assert.equal(j.mercadoPago.configurado, true);
+  assert.equal(j.superFrete.configurado, true);
+  assert.equal(j.painel.senhaConfigurada, true);
+  const txt = JSON.stringify(j);
+  assert.ok(!txt.includes('APP_USR-teste') && !txt.includes('sf-token-teste') && !txt.includes('senha-forte-123'));
+});
