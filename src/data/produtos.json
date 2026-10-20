@@ -1397,7 +1397,7 @@
    "subtitulo": "200 hinos para você cantar e adorar ao Senhor",
    "descricao": [
     "Livro com as letras de 200 hinos antigos que marcaram gerações de crentes, para cantar no culto, nos lares e nos círculos de oração.",
-    "Escolha a versão em espiral, a versão luxo com capa dura floral ou a opção com as músicas gravadas."
+    "Escolha a versão em espiral, a versão luxo com capa dura floral ou o hinário em espiral acompanhado do pendrive com as músicas gravadas."
    ],
    "ficha": [],
    "novo": false,
@@ -1466,11 +1466,11 @@
      ]
     },
     {
-     "id": "hinos-antigos--musicas",
-     "nome": "Músicas gravadas",
+     "id": "hinos-antigos--com-pendrive",
+     "nome": "Hinário + pendrive com as músicas",
      "preco": 63.85,
      "atacado": [],
-     "peso": 0.35,
+     "peso": 0.3,
      "dims": {
       "altura": 3.0,
       "largura": 17.0,
@@ -1479,17 +1479,17 @@
      "gtin": null,
      "imagens": [
       {
-       "src": "/img/p/hinos-antigos-musicas-0-960.webp",
-       "thumb": "/img/p/hinos-antigos-musicas-0-480.webp",
-       "w": 452,
-       "h": 397,
-       "fundo": "transparente"
+       "src": "/img/p/hinos-antigos-com-pendrive-0-960.webp",
+       "thumb": "/img/p/hinos-antigos-com-pendrive-0-480.webp",
+       "w": 487,
+       "h": 487,
+       "fundo": "branco"
       },
       {
-       "src": "/img/p/hinos-antigos-espiral-0-960.webp",
-       "thumb": "/img/p/hinos-antigos-espiral-0-480.webp",
-       "w": 756,
-       "h": 960,
+       "src": "/img/p/hinos-antigos-com-pendrive-1-960.webp",
+       "thumb": "/img/p/hinos-antigos-com-pendrive-1-480.webp",
+       "w": 452,
+       "h": 397,
        "fundo": "transparente"
       }
      ]
