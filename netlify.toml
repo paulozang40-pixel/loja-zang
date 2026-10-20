@@ -9,12 +9,8 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# O domínio sem "www" vai para o endereço principal
-[[redirects]]
-  from = "https://zangeditoracrista.com.br/*"
-  to = "https://www.zangeditoracrista.com.br/:splat"
-  status = 301
-  force = true
+# O endereço sem "www" é redirecionado pelo próprio Netlify para o domínio principal
+# (Domain management > Primary domain), então não precisa de regra aqui.
 
 [[headers]]
   for = "/*"
