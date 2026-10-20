@@ -1,0 +1,206 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { LOJA, produtos, brl, nomeCategoria, urlCategoria, urlProduto, resumo, type Produto } from '../../lib/loja';
+
+export function getStaticPaths() {
+  return produtos.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props as { p: Produto };
+const v0 = p.variantes[0];
+const im0 = v0.imagens[0];
+const varias = p.variantes.length > 1;
+const imagensDistintas = new Set(p.variantes.map((v) => v.imagens[0].src)).size > 1;
+const relacionados = produtos.filter((x) => x.categoria === p.categoria && x.slug !== p.slug).slice(0, 4);
+const ficha: [string, string][] = [['Autor', p.categoria === 'agendas' ? 'Zang Editora Cristã' : 'Pr. Paulo Zang'], ...p.ficha, ['Editora', 'Zang Editora Cristã']];
+if (!varias && v0.gtin) ficha.push(['ISBN', v0.gtin]);
+const url = new URL(urlProduto(p), LOJA.url).href;
+const jsonld = [
+  {
+    '@context': 'https://schema.org', '@type': 'Product', name: p.nome, description: [p.subtitulo ? p.subtitulo.replace(/[.!?]?$/, '.') : '', ...p.descricao].filter(Boolean).join(' '),
+    image: [...new Set(p.variantes.map((v) => new URL(v.imagens[0].src, LOJA.url).href))],
+    brand: { '@type': 'Brand', name: LOJA.nome }, category: nomeCategoria(p.categoria),
+    ...(v0.gtin && !varias ? { gtin13: v0.gtin, isbn: v0.gtin } : {}),
+    offers: p.variantes.map((v) => ({
+      '@type': 'Offer', sku: v.id, name: v.nome ?? p.nome, price: v.preco.toFixed(2), priceCurrency: 'BRL',
+      availability: 'https://schema.org/InStock', itemCondition: 'https://schema.org/NewCondition',
+      url: v.nome ? `${url}?v=${v.id.split('--')[1]}` : url, seller: { '@type': 'Organization', name: LOJA.nome },
+    })),
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: LOJA.url },
+      { '@type': 'ListItem', position: 2, name: nomeCategoria(p.categoria), item: new URL(urlCategoria(p.categoria), LOJA.url).href },
+      { '@type': 'ListItem', position: 3, name: p.nome, item: url },
+    ],
+  },
+];
+const dados = { nome: p.nome, variantes: p.variantes.map((v) => ({ id: v.id, key: v.id.split('--')[1] ?? null, nome: v.nome, preco: v.preco, atacado: v.atacado, imagens: v.imagens })), extras: p.extras };
+---
+<Base title={p.nome} description={resumo(p)} image={im0.src} jsonld={jsonld}>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="/">Início</a><span aria-hidden="true">/</span>
+      <a href={urlCategoria(p.categoria)}>{nomeCategoria(p.categoria)}</a><span aria-hidden="true">/</span>
+      <span>{p.nome}</span>
+    </nav>
+    <div class="pp">
+      <div class="gal">
+        <div class={`gal-main f-${im0.fundo}`} id="galMain">
+          <img id="galImg" src={im0.src} width={im0.w} height={im0.h} alt={`${p.nome}${v0.nome ? `, ${v0.nome}` : ''}`} fetchpriority="high">
+        </div>
+        {(varias || p.extras.length > 0) && (
+          <div class="thumbs" id="thumbs" aria-label="Imagens do produto"></div>
+        )}
+      </div>
+
+      <div>
+        <span class="eyebrow">{nomeCategoria(p.categoria)}</span>
+        <h1>{p.nome}</h1>
+        {p.subtitulo && <p class="sub">{p.subtitulo}</p>}
+        <div class="preco"><b id="preco">{brl(v0.preco)}</b><span id="parcelas">no Pix, cartão ou boleto</span></div>
+
+        {varias && (
+          <div class="opcoes" role="group" aria-labelledby="lblOp">
+            <span id="lblOp">{p.categoria === 'agendas' ? 'Escolha a capa' : 'Escolha a opção'}: <b id="nomeVar">{v0.nome}</b></span>
+            <div class="chips">
+              {p.variantes.map((v, i) => (
+                <button type="button" class={`chip${imagensDistintas ? '' : ' sem-img'}`} data-var={i} aria-pressed={i === 0 ? 'true' : 'false'}>
+                  {imagensDistintas && <img src={v.imagens[0].thumb} alt="" loading="lazy" width="32" height="32">}
+                  {v.nome}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div class="atacado" id="atacado" hidden></div>
+
+        <div class="qtd-row">
+          <div class="qty" aria-label="Quantidade">
+            <button type="button" id="qMenos" aria-label="Diminuir quantidade"><svg class="ico"><use href="#i-minus"/></svg></button>
+            <output id="qtd" aria-live="polite">1</output>
+            <button type="button" id="qMais" aria-label="Aumentar quantidade"><svg class="ico"><use href="#i-plus"/></svg></button>
+          </div>
+          <button class="btn btn-gold" type="button" id="btnAdd" data-add={v0.id} data-qtd="1"><svg class="ico"><use href="#i-bag"/></svg>Adicionar ao carrinho</button>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:14px">
+          <button class="btn btn-line btn-sm" type="button" id="btnComprar">Comprar agora</button>
+          <a class="btn btn-line btn-sm" id="btnWa" href={`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(`Olá! Tenho uma dúvida sobre ${p.nome}.`)}`} target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>Tirar dúvida</a>
+        </div>
+
+        <div class="frete-calc">
+          <div class="field">
+            <label for="pCep">Calcular frete e prazo</label>
+            <div class="cep-row">
+              <div class="input"><svg class="ico"><use href="#i-truck"/></svg><input id="pCep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" aria-describedby="pCepMsg"></div>
+              <button class="btn btn-ink btn-sm" type="button" id="pCalc">Calcular</button>
+            </div>
+            <span id="pCepMsg" class="hint">Postagem em até {LOJA.diasPostagem} dias úteis após o pagamento.</span>
+          </div>
+          <div id="pShip" hidden></div>
+        </div>
+
+        <div class="desc">{p.descricao.map((t) => <p>{t}</p>)}</div>
+        <dl class="ficha">
+          {ficha.map(([k, val]) => <div><dt>{k}</dt><dd>{val}</dd></div>)}
+        </dl>
+        {p.extras.length > 0 && (
+          <>
+            <h2 class="h2" style="font-size:1.4rem;margin-top:32px">Por dentro</h2>
+            <div class="extras-int">
+              {p.extras.map((e, i) => <button type="button" data-extra={i} aria-label={`Ver página interna ${i + 1}`}><img src={e.thumb} alt="" loading="lazy" width="240" height="320"></button>)}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+
+    {relacionados.length > 0 && (
+      <section class="sec sec-top0">
+        <h2 class="h2">Veja também</h2>
+        <div class="grid" style="margin-top:22px">{relacionados.map((x) => <ProductCard p={x} />)}</div>
+      </section>
+    )}
+  </div>
+  <script type="application/json" id="dados-produto" set:html={JSON.stringify(dados)} />
+</Base>
+
+<script>
+  import { adicionar, cotarFrete, htmlOpcoes, mascaraCep, cepSalvo, salvarCep } from '../../scripts/carrinho.js';
+  const D = JSON.parse(document.getElementById('dados-produto').textContent);
+  const brl = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s) => document.querySelector(s);
+  let atual = 0, qtd = 1;
+
+  const params = new URLSearchParams(location.search);
+  const pedida = D.variantes.findIndex((v) => v.key && v.key === params.get('v'));
+  if (pedida > 0) atual = pedida;
+
+  function unit(v, q) { let p = v.preco; for (const t of v.atacado) if (q >= t.min && t.preco < p) p = t.preco; return p; }
+
+  function mostrarImagem(im, alt) {
+    const main = $('#galMain'), img = $('#galImg');
+    main.className = `gal-main f-${im.fundo}`;
+    img.src = im.src; img.width = im.w; img.height = im.h; if (alt) img.alt = alt;
+    if (!reduce) { img.classList.remove('trocou'); void img.offsetWidth; img.classList.add('trocou'); }
+  }
+
+  function thumbs() {
+    const box = $('#thumbs'); if (!box) return;
+    const v = D.variantes[atual];
+    const lista = [...v.imagens.map((im) => ({ im, alt: `${D.nome}, ${v.nome ?? ''}` })), ...D.extras.map((im, i) => ({ im, alt: `Página interna ${i + 1}` }))];
+    box.innerHTML = lista.map((x, i) => `<button type="button" data-th="${i}" aria-pressed="${i === 0}" aria-label="${x.alt}"><img src="${x.im.thumb}" alt=""></button>`).join('');
+    box.querySelectorAll('[data-th]').forEach((b) => b.addEventListener('click', () => {
+      box.querySelectorAll('[data-th]').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      const x = lista[Number(b.dataset.th)]; mostrarImagem(x.im, x.alt);
+    }));
+  }
+
+  function pintar(trocouVariante) {
+    const v = D.variantes[atual];
+    const u = unit(v, qtd);
+    $('#preco').textContent = brl(u * qtd);
+    $('#parcelas').textContent = qtd > 1 ? `${qtd} x ${brl(u)}${u < v.preco ? ', com desconto de quantidade' : ''}` : 'no Pix, cartão ou boleto';
+    $('#qtd').textContent = qtd;
+    const add = $('#btnAdd'); add.dataset.add = v.id; add.dataset.qtd = qtd;
+    const at = $('#atacado');
+    if (v.atacado.length) {
+      at.hidden = false;
+      at.innerHTML = `<b>Preço por quantidade</b><ul>${v.atacado.map((t) => `<li>${t.min} ou mais: ${brl(t.preco)} cada</li>`).join('')}</ul>`;
+    } else at.hidden = true;
+    if (trocouVariante) {
+      const nv = $('#nomeVar'); if (nv) nv.textContent = v.nome;
+      document.querySelectorAll('[data-var]').forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.var) === atual)));
+      mostrarImagem(v.imagens[0], `${D.nome}${v.nome ? ', ' + v.nome : ''}`);
+      thumbs();
+      $('#pShip').hidden = true;
+    }
+  }
+
+  document.querySelectorAll('[data-var]').forEach((b) => b.addEventListener('click', () => {
+    atual = Number(b.dataset.var); pintar(true);
+    const u = new URL(location.href); if (D.variantes[atual].key) u.searchParams.set('v', D.variantes[atual].key); history.replaceState(null, '', u);
+  }));
+  $('#qMais').addEventListener('click', () => { qtd = Math.min(200, qtd + 1); pintar(); });
+  $('#qMenos').addEventListener('click', () => { qtd = Math.max(1, qtd - 1); pintar(); });
+  $('#btnComprar').addEventListener('click', () => { adicionar(D.variantes[atual].id, qtd); location.href = '/finalizar/'; });
+  document.querySelectorAll('[data-extra]').forEach((b) => b.addEventListener('click', () => {
+    mostrarImagem(D.extras[Number(b.dataset.extra)], 'Página interna'); $('#galMain').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+  }));
+
+  const cep = $('#pCep'); mascaraCep(cep);
+  if (cepSalvo()) cep.value = cepSalvo().replace(/(\d{5})(\d{3})/, '$1-$2');
+  $('#pCalc').addEventListener('click', async () => {
+    const v = cep.value.replace(/\D/g, ''); const msg = $('#pCepMsg'); const ship = $('#pShip');
+    if (v.length !== 8) { msg.textContent = 'Digite os 8 números do CEP.'; msg.className = 'err'; cep.focus(); return; }
+    msg.textContent = 'Valores para a quantidade escolhida. Postagem em até 2 dias úteis após o pagamento.'; msg.className = 'hint';
+    salvarCep(v);
+    ship.hidden = false; ship.innerHTML = '<div class="skel" aria-label="Calculando frete"><i></i><i></i></div>';
+    try { ship.innerHTML = `<div class="ship-list">${htmlOpcoes(await cotarFrete(v, [{ id: D.variantes[atual].id, qtd }]))}</div>`; }
+    catch (err) { ship.innerHTML = `<div class="aviso erro"></div>`; ship.firstChild.textContent = err.message; }
+  });
+
+  pintar(true);
+</script>

@@ -1,0 +1,214 @@
+---
+import Base from '../layouts/Base.astro';
+const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO RR SC SP SE TO'.split(' ');
+---
+<Base title="Finalizar compra" noindex semCarrinho>
+  <div class="wrap">
+    <div id="vazio" class="empty" style="margin-block:40px" hidden>
+      <svg class="ico"><use href="#i-bag"/></svg>
+      <p><b>Seu carrinho está vazio.</b> Escolha seus produtos para finalizar a compra.</p>
+      <a class="btn btn-gold" href="/produtos/">Ver produtos</a>
+    </div>
+
+    <form class="co" id="co" novalidate>
+      <div>
+        <h1>Finalizar compra</h1>
+        <p class="muted" style="margin-top:6px">Preencha os dados de entrega. O pagamento é feito em seguida, no Mercado Pago.</p>
+
+        <fieldset>
+          <legend>Seus dados</legend>
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <div class="input"><input id="nome" name="nome" autocomplete="name" required></div>
+            <span class="err" data-err="nome" hidden></span>
+          </div>
+          <div class="lin">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <div class="input"><input id="email" name="email" type="email" autocomplete="email" required></div>
+              <span class="err" data-err="email" hidden></span>
+            </div>
+            <div class="field">
+              <label for="telefone">WhatsApp ou telefone</label>
+              <div class="input"><input id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="(45) 99999-9999" required></div>
+              <span class="err" data-err="telefone" hidden></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Endereço de entrega</legend>
+          <div class="lin" style="--cols:3">
+            <div class="field">
+              <label for="cep">CEP</label>
+              <div class="input"><input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required></div>
+              <span class="err" data-err="cep" hidden></span>
+            </div>
+            <div class="field" style="grid-column:span 2;align-self:end">
+              <span class="hint" id="cepInfo">Digite o CEP para preencher o endereço e calcular o frete.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="endereco">Rua</label>
+            <div class="input"><input id="endereco" name="endereco" autocomplete="address-line1" required></div>
+            <span class="err" data-err="endereco" hidden></span>
+          </div>
+          <div class="lin">
+            <div class="field">
+              <label for="numero">Número</label>
+              <div class="input"><input id="numero" name="numero" autocomplete="address-line2" required></div>
+              <span class="err" data-err="numero" hidden></span>
+            </div>
+            <div class="field">
+              <label for="complemento">Complemento (opcional)</label>
+              <div class="input"><input id="complemento" name="complemento" placeholder="Apto, bloco, fundos"></div>
+            </div>
+          </div>
+          <div class="lin" style="--cols:3">
+            <div class="field">
+              <label for="bairro">Bairro</label>
+              <div class="input"><input id="bairro" name="bairro" required></div>
+              <span class="err" data-err="bairro" hidden></span>
+            </div>
+            <div class="field">
+              <label for="cidade">Cidade</label>
+              <div class="input"><input id="cidade" name="cidade" autocomplete="address-level2" required></div>
+              <span class="err" data-err="cidade" hidden></span>
+            </div>
+            <div class="field">
+              <label for="uf">Estado</label>
+              <div class="input"><select id="uf" name="uf" autocomplete="address-level1" required><option value="">Escolha</option>{UFS.map((u) => <option value={u}>{u}</option>)}</select></div>
+              <span class="err" data-err="uf" hidden></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Frete</legend>
+          <div id="frete"><p class="hint">Digite o CEP para ver as opções de entrega.</p></div>
+        </fieldset>
+      </div>
+
+      <aside class="resumo" aria-labelledby="rTitulo">
+        <h2 id="rTitulo">Resumo do pedido</h2>
+        <div id="rItens" style="display:grid;gap:10px"></div>
+        <div class="r-linha"><span>Subtotal</span><b id="rSub">R$ 0,00</b></div>
+        <div class="r-linha"><span>Frete</span><b id="rFrete">a calcular</b></div>
+        <div class="r-linha r-total"><span>Total</span><span id="rTotal">R$ 0,00</span></div>
+        <div id="erroGeral" class="aviso erro" role="alert" hidden></div>
+        <button class="btn btn-gold btn-block" type="submit" id="pagar"><svg class="ico"><use href="#i-lock"/></svg>Pagar com Mercado Pago</button>
+        <p class="hint" style="text-align:center">Pix, cartão de crédito ou boleto. Você será levado ao site do Mercado Pago para pagar com segurança.</p>
+        <p class="hint" style="text-align:center">Ao continuar, você concorda com os <a href="/termos/">Termos de uso</a> e a <a href="/privacidade/">Política de privacidade</a>.</p>
+        <a href="/produtos/" class="hint" style="text-align:center">Continuar comprando</a>
+      </aside>
+    </form>
+  </div>
+</Base>
+
+<script>
+  import { itens, subtotal, paraServidor, cotarFrete, htmlOpcoes, mascaraCep, cepSalvo, salvarCep } from '../scripts/carrinho.js';
+  const brl = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const $ = (s) => document.querySelector(s);
+  const form = $('#co');
+  const CAMPOS = ['nome', 'email', 'telefone', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'uf'];
+  const KEY = 'zang-cliente-v1';
+  let opcoes = [], cotadoPara = '';
+
+  if (!itens().length) { form.hidden = true; $('#vazio').hidden = false; }
+
+  // Dados salvos neste navegador para a próxima compra
+  try { const s = JSON.parse(localStorage.getItem(KEY) || '{}'); CAMPOS.forEach((c) => { if (s[c]) form[c].value = s[c]; }); } catch {}
+  if (!form.cep.value && cepSalvo()) form.cep.value = cepSalvo();
+  if (form.cep.value) form.cep.value = form.cep.value.replace(/\D/g, '').replace(/(\d{5})(\d{3})/, '$1-$2');
+  mascaraCep(form.cep);
+
+  function resumo() {
+    const lista = itens();
+    $('#rItens').innerHTML = lista.map((i) => `<div class="r-item"><img src="${esc(i.i)}" alt=""><span>${i.qtd} x ${esc(i.n)}</span><b>${brl(i.unit * i.qtd)}</b></div>`).join('');
+    const sub = subtotal();
+    $('#rSub').textContent = brl(sub);
+    const sel = opcoes.find((o) => String(o.servico) === form.querySelector('input[name=frete]:checked')?.value);
+    $('#rFrete').textContent = sel ? brl(sel.preco) : 'a calcular';
+    $('#rTotal').textContent = brl(sub + (sel ? sel.preco : 0));
+  }
+
+  function erro(campo, msg) {
+    const el = form.querySelector(`[data-err="${campo}"]`); if (!el) return;
+    el.textContent = msg || ''; el.hidden = !msg;
+    form[campo]?.closest('.input')?.classList.toggle('invalido', Boolean(msg));
+  }
+
+  async function calcular() {
+    const cep = form.cep.value.replace(/\D/g, '');
+    if (cep.length !== 8 || !itens().length) return;
+    const chave = cep + JSON.stringify(paraServidor());
+    if (chave === cotadoPara) return;
+    cotadoPara = chave; salvarCep(cep);
+    $('#frete').innerHTML = '<div class="skel" aria-label="Calculando frete"><i></i><i></i></div>';
+    try {
+      opcoes = await cotarFrete(cep);
+      $('#frete').innerHTML = `<div class="ship-list">${htmlOpcoes(opcoes, 'frete')}</div><p class="hint" style="margin-top:8px">O prazo inclui até 2 dias úteis para a postagem.</p>`;
+    } catch (e) {
+      opcoes = []; cotadoPara = '';
+      $('#frete').innerHTML = '<div class="aviso erro"></div>'; $('#frete .aviso').textContent = e.message;
+    }
+    resumo();
+  }
+
+  async function buscarCep() {
+    const cep = form.cep.value.replace(/\D/g, '');
+    if (cep.length !== 8) return;
+    erro('cep', '');
+    calcular();
+    try {
+      const r = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const j = await r.json();
+      if (j.erro) { erro('cep', 'CEP não encontrado. Confira os números.'); return; }
+      if (j.logradouro && !form.endereco.value) form.endereco.value = j.logradouro;
+      if (j.bairro && !form.bairro.value) form.bairro.value = j.bairro;
+      if (j.localidade) form.cidade.value = j.localidade;
+      if (j.uf) form.uf.value = j.uf;
+      $('#cepInfo').textContent = `${j.localidade}/${j.uf}`;
+      if (!form.endereco.value) form.endereco.focus(); else if (!form.numero.value) form.numero.focus();
+    } catch { /* sem ViaCEP: a pessoa preenche à mão */ }
+  }
+  form.cep.addEventListener('input', () => { if (form.cep.value.replace(/\D/g, '').length === 8) buscarCep(); });
+  form.addEventListener('change', (e) => { if (e.target.name === 'frete') resumo(); });
+  document.addEventListener('carrinho:mudou', () => { if (!itens().length) { form.hidden = true; $('#vazio').hidden = false; } cotadoPara = ''; calcular(); resumo(); });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const dados = Object.fromEntries(CAMPOS.map((c) => [c, form[c].value.trim()]));
+    CAMPOS.forEach((c) => erro(c, ''));
+    $('#erroGeral').hidden = true;
+    const faltando = [];
+    if (dados.nome.split(/\s+/).length < 2) faltando.push(['nome', 'Digite nome e sobrenome.']);
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(dados.email)) faltando.push(['email', 'Digite um e-mail válido.']);
+    if (dados.telefone.replace(/\D/g, '').length < 10) faltando.push(['telefone', 'Digite o telefone com DDD.']);
+    if (dados.cep.replace(/\D/g, '').length !== 8) faltando.push(['cep', 'Digite um CEP com 8 números.']);
+    for (const [c, m] of [['endereco', 'Digite a rua.'], ['numero', 'Digite o número (ou S/N).'], ['bairro', 'Digite o bairro.'], ['cidade', 'Digite a cidade.'], ['uf', 'Escolha o estado.']]) if (!dados[c]) faltando.push([c, m]);
+    if (faltando.length) { faltando.forEach(([c, m]) => erro(c, m)); form[faltando[0][0]].focus(); return; }
+    const frete = form.querySelector('input[name=frete]:checked');
+    if (!frete) { $('#erroGeral').textContent = 'Escolha uma opção de frete.'; $('#erroGeral').hidden = false; return; }
+
+    try { localStorage.setItem(KEY, JSON.stringify(dados)); } catch {}
+    const btn = $('#pagar'); btn.disabled = true; btn.lastChild.textContent = 'Abrindo o Mercado Pago...';
+    try {
+      const r = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cliente: dados, itens: paraServidor(), freteServico: Number(frete.value) }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        if (j.campos) { Object.entries(j.campos).forEach(([c, m]) => erro(c, m)); }
+        if (r.status === 409) { cotadoPara = ''; calcular(); }
+        throw new Error(j.erro || 'Não foi possível abrir o pagamento agora.');
+      }
+      location.href = j.url;
+    } catch (err) {
+      $('#erroGeral').textContent = err.message; $('#erroGeral').hidden = false;
+      btn.disabled = false; btn.lastChild.textContent = 'Pagar com Mercado Pago';
+    }
+  });
+
+  resumo();
+  if (form.cep.value) { calcular(); }
+</script>

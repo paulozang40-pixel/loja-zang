@@ -1,0 +1,50 @@
+---
+import ProductCard from './ProductCard.astro';
+import { categorias, urlCategoria, type Produto } from '../lib/loja';
+interface Props { lista: Produto[]; ativa?: string; busca?: boolean }
+const { lista, ativa = 'todos', busca = true } = Astro.props;
+---
+<div class="toolbar">
+  <nav class="pills" aria-label="Categorias">
+    <a class="pill" href="/produtos/" aria-current={ativa === 'todos' ? 'page' : undefined}>Todos</a>
+    {categorias.map((c) => <a class="pill" href={urlCategoria(c.id)} aria-current={ativa === c.id ? 'page' : undefined}>{c.nome}</a>)}
+  </nav>
+  {busca && (
+    <div class="field">
+      <label for="busca">Buscar na loja</label>
+      <div class="input"><svg class="ico"><use href="#i-search"/></svg><input id="busca" type="search" placeholder="Ex.: hinário, obreiros, agenda" autocomplete="off"></div>
+    </div>
+  )}
+</div>
+<p class="count" id="count" aria-live="polite">{lista.length} {lista.length === 1 ? 'produto' : 'produtos'}</p>
+<div class="grid" id="grid" style="margin-top:14px">
+  {lista.map((p, i) => <ProductCard p={p} eager={i < 4} />)}
+</div>
+<div class="empty" id="empty" hidden>
+  <svg class="ico"><use href="#i-search"/></svg>
+  <p><b>Nada encontrado.</b> Tente outra palavra ou veja todas as categorias.</p>
+  <button class="btn btn-line btn-sm" type="button" id="limpar">Limpar busca</button>
+</div>
+
+<script>
+  const input = document.getElementById('busca');
+  if (input) {
+    const cards = [...document.querySelectorAll('#grid .card')];
+    const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const textos = cards.map((c) => norm(c.dataset.busca || ''));
+    const total = cards.length;
+    function filtrar() {
+      const termos = norm(input.value.trim()).split(/\s+/).filter(Boolean);
+      let n = 0;
+      cards.forEach((c, i) => { const ok = termos.every((t) => textos[i].includes(t)); c.hidden = !ok; if (ok) n++; });
+      document.getElementById('empty').hidden = n > 0;
+      document.getElementById('count').textContent = `${n} ${n === 1 ? 'produto' : 'produtos'}${n < total ? ` de ${total}` : ''}`;
+      const u = new URL(location.href); if (input.value.trim()) u.searchParams.set('busca', input.value.trim()); else u.searchParams.delete('busca'); history.replaceState(null, '', u);
+    }
+    input.addEventListener('input', filtrar);
+    document.getElementById('limpar').addEventListener('click', () => { input.value = ''; filtrar(); input.focus(); });
+    const q = new URLSearchParams(location.search).get('busca');
+    if (q) { input.value = q; filtrar(); }
+    if (location.hash === '#busca' || q) input.focus({ preventScroll: !location.hash });
+  }
+</script>

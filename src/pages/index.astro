@@ -1,0 +1,252 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { LOJA, produtos, porSlug, brl, urlProduto, urlCategoria, imagemPrincipal } from '../lib/loja';
+
+const p = (slug: string) => porSlug(slug)!;
+const fan = [
+  { s: 'o-pastor-de-hermas', r: -24, x: -56, i: 0, z: 1 },
+  { s: 'a-musica-do-ceu', r: -12, x: -32, i: 1, z: 2 },
+  { s: 'mensagens-biblicas-vol-5', r: 12, x: 32, i: 3, z: 2 },
+  { s: 'hinos-antigos', r: 24, x: 56, i: 4, z: 1 },
+  { s: 'a-realidade-do-inferno', r: 0, x: 0, i: 2, z: 3, lead: true },
+];
+const novidades = produtos.filter((x) => x.novo);
+const agFem = p('agenda-crista-feminina-2027');
+const agMasc = p('agenda-crista-masculina-2027');
+const capas = [agFem.variantes[6], agMasc.variantes[0], agFem.variantes[2], agMasc.variantes[3], agFem.variantes[8], agMasc.variantes[5], agFem.variantes[0], agMasc.variantes[6]];
+const lanc = p('a-realidade-do-inferno');
+const lancImg = imagemPrincipal(lanc);
+const art = (slugs: string[]) => slugs.map((s) => imagemPrincipal(p(s)));
+const cel = {
+  livros: art(['o-pastor-de-hermas', 'a-realidade-do-inferno', 'a-musica-do-ceu']),
+  pregacao: art(['estudos-biblicos-para-obreiros-vol-3', 'mensagens-biblicas-vol-5', 'voce-sabia']),
+  ebd: art(['o-calendario-profetico', 'o-culto-pelos-padroes-biblicos', 'o-cristao-e-as-financas']),
+  hinarios: [p('hinario-sucessos-evangelicos').variantes[1].imagens[0], p('hinos-antigos').variantes[0].imagens[0], p('corinhos-avivados').variantes[2].imagens[0]],
+  agendas: [agFem.variantes[6].imagens[0], agMasc.variantes[0].imagens[0], agFem.variantes[2].imagens[0]],
+  kits: [imagemPrincipal(p('kit-estudos-biblicos-para-obreiros')), p('kit-hinos-sucessos-corinhos').variantes[1].imagens[0], imagemPrincipal(p('kit-mensagens-biblicas'))],
+};
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'OnlineStore', name: LOJA.nome, url: LOJA.url, logo: `${LOJA.url}/img/logo-320.webp`, email: LOJA.email,
+    telephone: '+55 45 99820-3263', taxID: LOJA.cnpj,
+    address: { '@type': 'PostalAddress', streetAddress: 'Rua Pernambuco, 3256', addressLocality: 'Cascavel', addressRegion: 'PR', postalCode: '85807-050', addressCountry: 'BR' },
+    sameAs: [LOJA.shopee, LOJA.mercadoLivre] },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: LOJA.nome, url: LOJA.url,
+    potentialAction: { '@type': 'SearchAction', target: `${LOJA.url}/produtos/?busca={q}`, 'query-input': 'required name=q' } },
+];
+const ticker = [
+  ['i-pix', 'Pix, cartão ou boleto pelo Mercado Pago'],
+  ['i-truck', 'Frete calculado pelo CEP com a SuperFrete'],
+  ['i-package', 'Postagem em até 2 dias úteis'],
+  ['i-church', 'Preço de atacado para igrejas'],
+  ['i-wa', 'Atendimento pelo WhatsApp'],
+];
+---
+<Base jsonld={jsonld}>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Livros que fortalecem quem ensina <em>a Palavra</em></h1>
+        <p>Estudos bíblicos, revistas de EBD, hinários e agendas da editora do Pr. Paulo Zang, com envio para todo o Brasil.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="/produtos/"><svg class="ico"><use href="#i-book"/></svg>Ver livros</a>
+          <a class="btn btn-line" href={`https://wa.me/${LOJA.whatsapp}`} target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp</a>
+        </div>
+      </div>
+      <div class="stage-hero">
+        <div class="fan">
+          {fan.map((f) => {
+            const prod = p(f.s); const im = imagemPrincipal(prod);
+            return <a href={urlProduto(prod)} class={f.lead ? 'lead-cover' : undefined} style={`--r:${f.r}deg;--x:${f.x}%;--i:${f.i};--zi:${f.z}`} aria-label={prod.nome}>
+              <img src={im.thumb} width={Math.round(im.w / 2)} height={Math.round(im.h / 2)} alt="" fetchpriority={f.lead ? 'high' : undefined}>
+            </a>;
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Pagamento e envio">
+    <div class="ticker-track">
+      {[0, 1].map((n) => (
+        <div class="ticker-group" aria-hidden={n === 1 ? 'true' : undefined}>
+          {ticker.map(([i, t]) => <span class="ticker-item"><svg class="ico"><use href={`#${i}`}/></svg>{t}</span>)}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="h2 reveal">Escolha por categoria</h2>
+      <div class="bento">
+        <a href={urlCategoria('livros')} class="cell c-livros reveal">
+          <h3>Livros cristãos</h3>
+          <p>Estudos bíblicos, biografias e clássicos da fé.</p>
+          <span class="go">Ver livros <svg class="ico"><use href="#i-arrow"/></svg></span>
+          <span class="art">{cel.livros.map((im) => <img src={im.thumb} alt="" loading="lazy" width={Math.round(im.w / 2)} height={Math.round(im.h / 2)}>)}</span>
+        </a>
+        <a href={urlCategoria('pregacao')} class="cell c-pregacao reveal">
+          <h3>Pregação e ensino</h3>
+          <p>Mensagens Bíblicas, estudos para obreiros e curiosidades.</p>
+          <span class="go">Ver materiais <svg class="ico"><use href="#i-arrow"/></svg></span>
+          <span class="art">{cel.pregacao.map((im) => <img src={im.thumb} alt="" loading="lazy" width={Math.round(im.w / 2)} height={Math.round(im.h / 2)}>)}</span>
+        </a>
+        <a href={urlCategoria('ebd')} class="cell c-ebd reveal">
+          <h3>Revistas e apostilas</h3>
+          <p>Lições prontas para a Escola Bíblica e o discipulado.</p>
+          <span class="go">Ver revistas <svg class="ico"><use href="#i-arrow"/></svg></span>
+          <span class="art">{cel.ebd.map((im) => <img src={im.thumb} alt="" loading="lazy" width={Math.round(im.w / 2)} height={Math.round(im.h / 2)}>)}</span>
+        </a>
+        <a href={urlCategoria('hinarios')} class="cell c-hinarios reveal">
+          <h3>Hinários e corinhos</h3>
+          <p>Hinos antigos, corinhos avivados e edições capa floral.</p>
+          <span class="go">Ver hinários <svg class="ico"><use href="#i-arrow"/></svg></span>
+          <span class="art">{cel.hinarios.map((im) => <img src={im.thumb} alt="" loading="lazy" width={Math.round(im.w / 2)} height={Math.round(im.h / 2)}>)}</span>
+        </a>
+        <a href={urlCategoria('agendas')} class="cell c-agendas reveal">
+          <h3>Agendas cristãs</h3>
+          <p>Agendas 2027 e permanentes, com versículos.</p>
+          <span class="go">Ver agendas <svg class="ico"><use href="#i-arrow"/></svg></span>
+          <span class="art">{cel.agendas.map((im) => <img src={im.thumb} alt="" loading="lazy" width={Math.round(im.w / 2)} height={Math.round(im.h / 2)}>)}</span>
+        </a>
+        <a href={urlCategoria('kits')} class="cell c-kits reveal">
+          <h3>Kits com desconto</h3>
+          <p>Coleções de livros e hinários juntos, por um preço menor.</p>
+          <span class="go">Ver kits <svg class="ico"><use href="#i-arrow"/></svg></span>
+          <span class="art">{cel.kits.map((im) => <img src={im.thumb} alt="" loading="lazy" width={Math.round(im.w / 2)} height={Math.round(im.h / 2)}>)}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-top0">
+    <div class="wrap">
+      <div class="shelf-head">
+        <h2 class="h2 reveal">Novidades</h2>
+        <div class="arrows">
+          <button type="button" data-shelf="-1" aria-label="Voltar novidades"><svg class="ico"><use href="#i-left"/></svg></button>
+          <button type="button" data-shelf="1" aria-label="Avançar novidades"><svg class="ico"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="shelf" id="shelf" tabindex="0" aria-label="Novidades">
+        {novidades.map((x) => <ProductCard p={x} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-top0 agendas-band">
+    <div class="wrap">
+      <div>
+        <h2 class="h2 reveal">Agendas 2027</h2>
+        <p class="lead">Versículos bíblicos em todas as páginas, wire-o e capa laminada. São {agFem.variantes.length} capas femininas e {agMasc.variantes.length} masculinas, a partir de {brl(agFem.precoMin)}.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href={urlProduto(agFem)}>Femininas</a>
+          <a class="btn btn-line" href={urlProduto(agMasc)}>Masculinas</a>
+        </div>
+      </div>
+      <div class="capas">
+        {capas.map((v) => {
+          const prod = v.id.startsWith('agenda-crista-feminina') ? agFem : agMasc;
+          return <a href={`${urlProduto(prod)}?v=${v.id.split('--')[1]}`} aria-label={`${prod.nome}, capa ${v.nome}`}><img src={v.imagens[0].thumb} alt="" loading="lazy" width="240" height="240"></a>;
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-top0 spot">
+    <div class="wrap">
+      <a class="spot-stage reveal" id="spotStage" href={urlProduto(lanc)}>
+        <img src={lancImg.src} width={lancImg.w} height={lancImg.h} alt={`Capa do livro ${lanc.nome}, do Pr. Paulo Zang`} loading="lazy">
+      </a>
+      <div>
+        <span class="eyebrow">Lançamento</span>
+        <h2 class="h2">{lanc.nome}</h2>
+        <p class="sub">{lanc.subtitulo}.</p>
+        <div class="specs">
+          <span class="spec"><svg class="ico"><use href="#i-book"/></svg>145 páginas</span>
+          <span class="spec"><svg class="ico"><use href="#i-package"/></svg>14,5 x 21 cm</span>
+          <span class="spec"><svg class="ico"><use href="#i-check"/></svg>Pr. Paulo Zang</span>
+        </div>
+        <div class="buy">
+          <span class="price">{brl(lanc.precoMin)}</span>
+          <button class="btn btn-gold" type="button" data-add={lanc.variantes[0].id}><svg class="ico"><use href="#i-bag"/></svg>Adicionar ao carrinho</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-top0">
+    <div class="wrap">
+      <div class="igrejas reveal">
+        <div>
+          <h2>Comprando para a igreja?</h2>
+          <p>Vários livros e revistas já ficam mais baratos no carrinho a partir de 2, 3 ou 5 unidades. Para turmas de Escola Bíblica e pedidos maiores, fale direto com a editora.</p>
+          <a class="btn btn-gold" href={`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent('Olá! Quero fazer um pedido em quantidade para a minha igreja.')}`} target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg>Pedir orçamento</a>
+        </div>
+        <ul>
+          <li><svg class="ico"><use href="#i-tag"/></svg>Desconto automático por quantidade</li>
+          <li><svg class="ico"><use href="#i-book"/></svg>Revistas de 13 lições para a Escola Bíblica</li>
+          <li><svg class="ico"><use href="#i-gift"/></svg>Agendas e hinários para presentear a liderança</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-top0 about">
+    <div class="wrap">
+      <div>
+        <h2 class="h2 reveal">Sobre a editora</h2>
+        <p class="lead">A Zang Editora Cristã publica os livros, revistas e hinários do Pr. Paulo Zang, pastor presidente da Igreja Pentecostal Renovada do Brasil, em Cascavel (PR). São materiais para a Escola Bíblica, a formação de obreiros, a pregação e o louvor da igreja.</p>
+        <div class="facts">
+          <div class="fact"><b><svg class="ico"><use href="#i-star"/></svg>4,9</b><span>nota da loja na Shopee</span></div>
+          <div class="fact"><b>{produtos.length}</b><span>títulos e kits na loja</span></div>
+        </div>
+      </div>
+      <div class="about-logo reveal"><img src="/img/logo-320.webp" width="320" height="243" alt="Logomarca da Zang Editora Cristã" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="markets">
+    <div class="wrap">
+      <div>
+        <h2>Prefere comprar pelo aplicativo?</h2>
+        <p>Também estamos nos principais marketplaces.</p>
+      </div>
+      <div class="mk-links">
+        <a class="mk mk-shopee" href={LOJA.shopee} target="_blank" rel="noopener"><svg class="ico"><use href="#b-shopee"/></svg>Shopee <small>nota 4,9</small></a>
+        <a class="mk mk-ml" href={LOJA.mercadoLivre} target="_blank" rel="noopener"><svg class="ico"><use href="#i-store"/></svg>Mercado Livre</a>
+        <a class="mk" href={LOJA.tiktok} target="_blank" rel="noopener"><svg class="ico"><use href="#b-tiktok"/></svg>TikTok Shop</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec faq" id="duvidas">
+    <div class="wrap">
+      <h2 class="h2">Dúvidas frequentes</h2>
+      <details><summary>Quais são as formas de pagamento?<svg class="ico"><use href="#i-down"/></svg></summary><p>Pix, cartão de crédito ou boleto. O pagamento é feito no ambiente seguro do Mercado Pago, e você volta para o site depois de pagar.</p></details>
+      <details><summary>Como o frete é calculado?<svg class="ico"><use href="#i-down"/></svg></summary><p>Pelo CEP, no carrinho ou na página do produto. A SuperFrete mostra as opções de envio dos Correios com valor e prazo antes de você pagar.</p></details>
+      <details><summary>Quando o meu pedido é enviado?<svg class="ico"><use href="#i-down"/></svg></summary><p>Postamos em até 2 dias úteis depois da confirmação do pagamento. O prazo mostrado no frete já inclui esses dias.</p></details>
+      <details><summary>Posso comprar em quantidade para a minha igreja?<svg class="ico"><use href="#i-down"/></svg></summary><p>Sim. Muitos produtos ficam mais baratos no carrinho a partir de algumas unidades. Para turmas de Escola Bíblica e pedidos maiores, chame no WhatsApp {LOJA.whatsappTexto}.</p></details>
+      <details><summary>E se eu quiser trocar ou devolver?<svg class="ico"><use href="#i-down"/></svg></summary><p>Você pode desistir da compra em até 7 dias depois de receber. Veja como funciona na página <a href="/trocas-e-devolucoes/">Trocas e devoluções</a>.</p></details>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const shelf = document.getElementById('shelf');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-shelf]').forEach((b) => b.addEventListener('click', () => {
+    shelf.scrollBy({ left: Number(b.dataset.shelf) * Math.min(shelf.clientWidth * 0.85, 700), behavior: reduce ? 'auto' : 'smooth' });
+  }));
+  const st = document.getElementById('spotStage');
+  if (st && !reduce && matchMedia('(hover:hover)').matches) {
+    let raf = 0;
+    st.addEventListener('pointermove', (e) => {
+      const r = st.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => { st.style.setProperty('--ry', (x * 26).toFixed(1) + 'deg'); st.style.setProperty('--rx', (-y * 18).toFixed(1) + 'deg'); });
+    });
+    st.addEventListener('pointerleave', () => { st.style.removeProperty('--ry'); st.style.removeProperty('--rx'); });
+  }
+</script>

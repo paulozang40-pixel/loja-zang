@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import { LOJA } from '../lib/loja';
+---
+<Base title="Seu pedido" noindex>
+  <section class="wrap texto">
+    <h1>Seu pedido</h1>
+    <div id="caixa" class="status-box" aria-live="polite">
+      <div class="skel" aria-label="Carregando pedido"><i></i><i></i></div>
+    </div>
+    <p class="muted" style="margin-top:20px">Dúvidas sobre o pedido? Chame no WhatsApp <a href={`https://wa.me/${LOJA.whatsapp}`} target="_blank" rel="noopener">{LOJA.whatsappTexto}</a> e informe o número do pedido.</p>
+  </section>
+</Base>
+
+<script>
+  import { limpar } from '../scripts/carrinho.js';
+  const brl = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const qs = new URLSearchParams(location.search);
+  const id = qs.get('id'), r = qs.get('r');
+  const caixa = document.getElementById('caixa');
+  const MSG = {
+    pago: ['st-pago', 'i-check', 'Pagamento confirmado', 'Obrigado pela compra! Vamos postar seu pedido em até 2 dias úteis.'],
+    aguardando_pagamento: ['st-espera', 'i-clock', 'Aguardando pagamento', 'Se você escolheu Pix ou boleto, o pedido é confirmado assim que o pagamento cair. Pode levar alguns minutos (boleto: até 3 dias úteis).'],
+    em_analise: ['st-espera', 'i-clock', 'Pagamento em análise', 'O Mercado Pago está analisando o pagamento. Avisaremos quando for aprovado.'],
+    enviado: ['st-pago', 'i-truck', 'Pedido enviado', 'Seu pedido já está a caminho.'],
+    entregue: ['st-pago', 'i-check', 'Pedido entregue', 'Esperamos que goste! Que Deus abençoe.'],
+    cancelado: ['st-erro', 'i-xcircle', 'Pagamento não aprovado', 'O pagamento foi recusado ou cancelado. Você pode tentar de novo pelo carrinho.'],
+    reembolsado: ['st-erro', 'i-xcircle', 'Pagamento devolvido', 'O valor deste pedido foi devolvido.'],
+  };
+  if (r === 'ok' || r === 'pendente') limpar();
+  async function carregar() {
+    if (!id) { caixa.innerHTML = '<p>Pedido não informado.</p>'; return; }
+    try {
+      const res = await fetch(`/api/pedido?id=${encodeURIComponent(id)}`);
+      if (!res.ok) throw new Error();
+      const p = await res.json();
+      let st = p.status;
+      if (st === 'aguardando_pagamento' && r === 'ok') st = 'em_analise';
+      if (st === 'aguardando_pagamento' && r === 'erro') st = 'cancelado';
+      const [cls, ico, titulo, texto] = MSG[st] || MSG.aguardando_pagamento;
+      caixa.className = `status-box ${cls}`;
+      caixa.innerHTML = `<svg class="ico ico-g"><use href="#${ico}"/></svg>
+        <h2 style="font-family:var(--f-serif);font-size:1.5rem">${titulo}</h2>
+        <p>${texto}</p>
+        <p class="muted">Pedido <b>${esc(p.id)}</b></p>
+        ${p.rastreio ? `<p>Código de rastreio: <b>${esc(p.rastreio)}</b></p>` : ''}
+        <div style="display:grid;gap:6px;border-top:1px solid var(--line);padding-top:12px">
+          ${p.itens.map((i) => `<div class="r-linha"><span>${i.qtd} x ${esc(i.nome)}</span><b>${brl(i.subtotal)}</b></div>`).join('')}
+          <div class="r-linha"><span>Frete (${esc(p.frete.nome)})</span><b>${brl(p.frete.preco)}</b></div>
+          <div class="r-linha r-total"><span>Total</span><span>${brl(p.total)}</span></div>
+        </div>
+        ${st === 'cancelado' ? '<a class="btn btn-gold" href="/finalizar/">Tentar de novo</a>' : '<a class="btn btn-line" href="/produtos/">Continuar comprando</a>'}`;
+      if (st === 'aguardando_pagamento' || st === 'em_analise') setTimeout(carregar, 15000);
+    } catch {
+      caixa.innerHTML = '<p>Não foi possível carregar o pedido agora. Atualize a página em instantes.</p>';
+    }
+  }
+  carregar();
+</script>

@@ -1,0 +1,18 @@
+---
+import Texto from '../layouts/Texto.astro';
+import { LOJA } from '../lib/loja';
+---
+<Texto title="Termos de uso" description="Condições de compra na loja virtual da Zang Editora Cristã.">
+  <h2>Quem somos</h2>
+  <p>{LOJA.nome}, CNPJ {LOJA.cnpj}, com endereço na {LOJA.endereco}. Contato: {LOJA.email} e WhatsApp {LOJA.whatsappTexto}.</p>
+  <h2>Preços e pagamento</h2>
+  <p>Os preços são em reais e podem mudar sem aviso, mas o valor que vale é o mostrado no momento da compra. Alguns produtos têm preço menor a partir de certa quantidade, aplicado automaticamente no carrinho. O pagamento é feito pelo Mercado Pago, por Pix, cartão de crédito ou boleto. O pedido só é separado depois da confirmação do pagamento.</p>
+  <h2>Frete e entrega</h2>
+  <p>O frete é calculado pelo CEP e mostrado antes do pagamento. Veja os detalhes em <a href="/entregas/">Prazos e entregas</a>.</p>
+  <h2>Trocas e devoluções</h2>
+  <p>Seguimos o Código de Defesa do Consumidor. Veja como funciona em <a href="/trocas-e-devolucoes/">Trocas e devoluções</a>.</p>
+  <h2>Imagens e textos</h2>
+  <p>As capas são reproduções dos produtos; pequenas diferenças de cor podem acontecer por causa da tela. Os textos, capas e conteúdos dos livros são protegidos por direitos autorais e não podem ser copiados sem autorização.</p>
+  <h2>Privacidade</h2>
+  <p>O uso dos seus dados segue a nossa <a href="/privacidade/">Política de privacidade</a>.</p>
+</Texto>

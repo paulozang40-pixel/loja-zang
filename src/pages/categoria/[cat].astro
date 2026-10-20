@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import Catalogo from '../../components/Catalogo.astro';
+import { categorias, daCategoria, LOJA } from '../../lib/loja';
+
+export function getStaticPaths() {
+  return categorias.map((c) => ({ params: { cat: c.id }, props: { c } }));
+}
+const { c } = Astro.props as { c: { id: string; nome: string } };
+const lista = daCategoria(c.id);
+const textos: Record<string, string> = {
+  livros: 'Livros cristãos do Pr. Paulo Zang: estudos bíblicos, biografias de avivalistas e clássicos da fé.',
+  pregacao: 'Esboços de pregação, estudos para obreiros, ilustrações e curiosidades bíblicas para quem prega e ensina.',
+  ebd: 'Revistas e apostilas de 13 lições para a Escola Bíblica, discipulado, batismo e evangelismo.',
+  hinarios: 'Hinários e livretos de corinhos com as letras que a igreja canta, em espiral ou versão luxo floral.',
+  agendas: 'Agendas cristãs 2027 e permanentes com versículos bíblicos, capas femininas e masculinas.',
+  kits: 'Kits de livros e hinários com preço menor do que comprando separado.',
+};
+const jsonld = [{
+  '@context': 'https://schema.org', '@type': 'CollectionPage', name: c.nome, url: `${LOJA.url}/categoria/${c.id}/`,
+  description: textos[c.id],
+}];
+---
+<Base title={c.nome} description={textos[c.id]} jsonld={jsonld}>
+  <section class="sec" style="padding-top:28px">
+    <div class="wrap">
+      <h1 class="h2">{c.nome}</h1>
+      <p class="lead" style="margin-top:10px">{textos[c.id]}</p>
+      <Catalogo lista={lista} ativa={c.id} busca={false} />
+    </div>
+  </section>
+</Base>

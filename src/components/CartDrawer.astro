@@ -1,0 +1,21 @@
+---
+---
+<div class="overlay" id="overlay" data-fechar-carrinho></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="d-head"><h2 id="dTitle">Seu carrinho</h2><button class="icon-btn" type="button" id="closeCart" data-fechar-carrinho aria-label="Fechar carrinho"><svg class="ico"><use href="#i-x"/></svg></button></div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot" hidden>
+    <div class="field">
+      <label for="dCep">Calcular o frete</label>
+      <div class="cep-row">
+        <div class="input"><svg class="ico"><use href="#i-truck"/></svg><input id="dCep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" aria-describedby="dCepMsg"></div>
+        <button class="btn btn-ink btn-sm" type="button" id="dCalc">Calcular</button>
+      </div>
+      <span id="dCepMsg" class="hint">Os valores aparecem antes do pagamento.</span>
+    </div>
+    <div id="dShip" hidden></div>
+    <div class="total"><span>Subtotal</span><b id="subtotal">R$ 0,00</b></div>
+    <a class="btn btn-gold btn-block" href="/finalizar/">Finalizar compra</a>
+    <span class="hint" style="text-align:center">Pix, cartão ou boleto pelo Mercado Pago.</span>
+  </div>
+</aside>

@@ -1,0 +1,16 @@
+---
+// Formulário oculto usado pelo Netlify Forms para avisar por e-mail quando um pedido é pago.
+// Não remova: o Netlify só reconhece o formulário se ele existir no HTML publicado.
+import Base from '../layouts/Base.astro';
+---
+<Base title="Formulários" noindex semCarrinho>
+  <section class="wrap texto">
+    <h1>Formulários internos</h1>
+    <form name="pedido-pago" method="POST" data-netlify="true" netlify-honeypot="campo-isca" hidden>
+      <input type="hidden" name="form-name" value="pedido-pago">
+      <p hidden><label>Não preencha: <input name="campo-isca"></label></p>
+      <input name="pedido"><input name="total"><input name="cliente"><input name="whatsapp"><input name="email">
+      <textarea name="resumo"></textarea>
+    </form>
+  </section>
+</Base>

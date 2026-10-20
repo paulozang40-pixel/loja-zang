@@ -1,0 +1,24 @@
+---
+import Texto from '../layouts/Texto.astro';
+import { LOJA } from '../lib/loja';
+---
+<Texto title="Trocas e devoluções" description="Como desistir de uma compra, trocar um produto com defeito ou devolver um pedido na Zang Editora Cristã.">
+  <h2>Desistência em até 7 dias</h2>
+  <p>Pelo Código de Defesa do Consumidor (art. 49), quem compra pela internet pode desistir da compra em até 7 dias corridos contados do recebimento do produto, sem precisar dar motivo.</p>
+  <p>Para desistir, avise pelo WhatsApp {LOJA.whatsappTexto} ou pelo e-mail {LOJA.email} informando o número do pedido. Nós combinamos a devolução e o frete de volta fica por nossa conta. O produto deve voltar sem uso e com tudo o que veio na embalagem.</p>
+  <p>Depois que o produto chegar de volta, devolvemos o valor total pago, incluindo o frete, pelo mesmo meio de pagamento, por meio do Mercado Pago.</p>
+
+  <h2>Produto com defeito ou errado</h2>
+  <p>Se o produto chegar com defeito de fabricação (páginas faltando, impressão falhada, encadernação solta) ou diferente do que você pediu, fale com a gente. Você pode pedir a troca por outro igual, a troca por outro produto ou o dinheiro de volta. Nesses casos, o frete de devolução e de reenvio é por nossa conta.</p>
+  <p>O prazo para reclamar de defeito aparente é de 90 dias a partir do recebimento (CDC, art. 26).</p>
+
+  <h2>Avaria no transporte</h2>
+  <p>Se a embalagem chegar danificada, fotografe a embalagem e o produto e nos envie em até 7 dias. Resolvemos com reenvio ou reembolso.</p>
+
+  <h2>Como falar com a gente</h2>
+  <ul>
+    <li>WhatsApp: {LOJA.whatsappTexto}</li>
+    <li>E-mail: {LOJA.email}</li>
+    <li>Endereço para devolução: {LOJA.endereco}</li>
+  </ul>
+</Texto>

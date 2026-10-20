@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import Catalogo from '../../components/Catalogo.astro';
+import { produtos } from '../../lib/loja';
+---
+<Base title="Todos os produtos" description="Livros cristãos, revistas de Escola Bíblica, hinários, corinhos, agendas cristãs e kits da Zang Editora Cristã.">
+  <section class="sec" style="padding-top:28px" id="busca-sec">
+    <div class="wrap">
+      <h1 class="h2">Todos os produtos</h1>
+      <Catalogo lista={produtos} />
+    </div>
+  </section>
+</Base>

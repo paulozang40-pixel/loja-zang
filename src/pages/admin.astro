@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Pedidos" noindex semCarrinho>
+  <section class="wrap adm" style="padding-block:28px 64px">
+    <h1 class="h2">Pedidos da loja</h1>
+    <form id="login" style="display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-top:20px">
+      <div class="field" style="min-width:260px">
+        <label for="senha">Senha do painel</label>
+        <div class="input"><input id="senha" type="password" autocomplete="current-password" required></div>
+      </div>
+      <button class="btn btn-ink btn-sm" type="submit">Entrar</button>
+      <span id="msg" class="err" role="alert"></span>
+    </form>
+    <div id="painel" hidden>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;align-items:center">
+        <label class="hint" for="filtro">Mostrar</label>
+        <select id="filtro">
+          <option value="ativos">Pagos e a enviar</option>
+          <option value="todos">Todos</option>
+          <option value="aguardando_pagamento">Aguardando pagamento</option>
+          <option value="enviado">Enviados</option>
+        </select>
+        <button class="btn btn-line btn-sm" type="button" id="atualizar">Atualizar</button>
+        <span class="hint" id="resumo"></span>
+      </div>
+      <div class="tabela"><table><thead><tr><th>Data</th><th>Pedido</th><th>Cliente e entrega</th><th>Itens</th><th>Total</th><th>Situação</th></tr></thead><tbody id="linhas"></tbody></table></div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const brl = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const $ = (s) => document.querySelector(s);
+  const NOMES = { aguardando_pagamento: 'Aguardando pagamento', em_analise: 'Em análise', pago: 'Pago', enviado: 'Enviado', entregue: 'Entregue', cancelado: 'Cancelado', reembolsado: 'Reembolsado' };
+  let senha = sessionStorage.getItem('zang-adm') || '', pedidos = [];
+
+  async function api(metodo = 'GET', corpo) {
+    const r = await fetch('/api/admin/pedidos', { method: metodo, headers: { 'x-senha': senha, 'Content-Type': 'application/json' }, body: corpo ? JSON.stringify(corpo) : undefined });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.erro || 'Erro ao falar com o servidor.');
+    return j;
+  }
+  function render() {
+    const f = $('#filtro').value;
+    const lista = pedidos.filter((p) => f === 'todos' || (f === 'ativos' ? ['pago', 'em_analise'].includes(p.status) : p.status === f));
+    $('#resumo').textContent = `${lista.length} de ${pedidos.length} pedidos`;
+    $('#linhas').innerHTML = lista.map((p) => {
+      const c = p.cliente;
+      return `<tr>
+        <td>${new Date(p.criadoEm).toLocaleString('pt-BR')}</td>
+        <td><b>${esc(p.id)}</b>${p.alerta ? `<br><span class="err">${esc(p.alerta)}</span>` : ''}${p.superfrete ? '<br><span class="hint">Na SuperFrete</span>' : ''}${p.superfreteErro ? `<br><span class="err">SuperFrete: ${esc(p.superfreteErro)}</span>` : ''}</td>
+        <td><b>${esc(c.nome)}</b><br>${esc(c.endereco)}, ${esc(c.numero)}${c.complemento ? ' - ' + esc(c.complemento) : ''}<br>${esc(c.bairro)} - ${esc(c.cidade)}/${esc(c.uf)} - ${esc(c.cep)}<br><a href="https://wa.me/55${esc(c.telefone.replace(/\D/g, ''))}" target="_blank" rel="noopener">${esc(c.telefone)}</a> · ${esc(c.email)}</td>
+        <td>${p.itens.map((i) => `${i.qtd}x ${esc(i.nome)}`).join('<br>')}<br><span class="hint">${esc(p.frete.nome)}: ${brl(p.frete.preco)}</span></td>
+        <td><b>${brl(p.total)}</b></td>
+        <td><span class="st ${esc(p.status)}">${NOMES[p.status] || esc(p.status)}</span>
+          <div style="display:grid;gap:6px;margin-top:8px">
+            <select data-st="${esc(p.id)}">${Object.entries(NOMES).map(([k, v]) => `<option value="${k}" ${k === p.status ? 'selected' : ''}>${v}</option>`).join('')}</select>
+            <input type="text" data-rt="${esc(p.id)}" value="${esc(p.rastreio || '')}" placeholder="Código de rastreio" aria-label="Código de rastreio">
+            <button class="btn btn-ink btn-sm" type="button" data-salvar="${esc(p.id)}">Salvar</button>
+          </div></td></tr>`;
+    }).join('') || '<tr><td colspan="6">Nenhum pedido aqui.</td></tr>';
+  }
+  async function carregar() {
+    try { pedidos = (await api()).pedidos; $('#login').hidden = true; $('#painel').hidden = false; render(); }
+    catch (e) { $('#msg').textContent = e.message; sessionStorage.removeItem('zang-adm'); }
+  }
+  $('#login').addEventListener('submit', (e) => { e.preventDefault(); senha = $('#senha').value; sessionStorage.setItem('zang-adm', senha); carregar(); });
+  $('#filtro').addEventListener('change', render);
+  $('#atualizar').addEventListener('click', carregar);
+  document.addEventListener('click', async (e) => {
+    const b = e.target.closest('[data-salvar]'); if (!b) return;
+    const id = b.dataset.salvar;
+    b.disabled = true; b.textContent = 'Salvando...';
+    try {
+      const j = await api('POST', { id, status: document.querySelector(`[data-st="${id}"]`).value, rastreio: document.querySelector(`[data-rt="${id}"]`).value });
+      pedidos = pedidos.map((p) => (p.id === id ? j.pedido : p)); render();
+    } catch (err) { alert(err.message); b.disabled = false; b.textContent = 'Salvar'; }
+  });
+  if (senha) carregar();
+</script>

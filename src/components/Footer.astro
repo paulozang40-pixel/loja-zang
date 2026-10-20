@@ -1,0 +1,52 @@
+---
+import { LOJA, categorias, urlCategoria } from '../lib/loja';
+---
+<footer class="site">
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="/"><img src="/img/logo-160.webp" width="160" height="121" alt="" loading="lazy"><span>Zang Editora Cristã<small>Livros, revistas, hinários e agendas</small></span></a>
+        <p style="margin-top:14px;color:var(--ink-2);max-width:34ch">Materiais cristãos para a igreja, enviados de Cascavel (PR) para todo o Brasil.</p>
+        <div class="mk-links" style="margin-top:16px">
+          <a class="icon-btn" href={LOJA.shopee} target="_blank" rel="noopener" aria-label="Loja na Shopee"><svg class="ico"><use href="#b-shopee"/></svg></a>
+          <a class="icon-btn" href={LOJA.mercadoLivre} target="_blank" rel="noopener" aria-label="Loja no Mercado Livre"><svg class="ico"><use href="#i-store"/></svg></a>
+          <a class="icon-btn" href={LOJA.tiktok} target="_blank" rel="noopener" aria-label="Loja no TikTok Shop"><svg class="ico"><use href="#b-tiktok"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3>Atendimento</h3>
+        <ul>
+          <li><svg class="ico"><use href="#i-wa"/></svg><a href={`https://wa.me/${LOJA.whatsapp}`} target="_blank" rel="noopener">{LOJA.whatsappTexto}</a></li>
+          <li><svg class="ico"><use href="#i-mail"/></svg><a href={`mailto:${LOJA.email}`}>{LOJA.email}</a></li>
+          <li><svg class="ico"><use href="#i-pin"/></svg><span>{LOJA.endereco}</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Produtos</h3>
+        <ul>
+          {categorias.map((c) => <li><a href={urlCategoria(c.id)}>{c.nome}</a></li>)}
+        </ul>
+      </div>
+      <div>
+        <h3>Informações</h3>
+        <ul>
+          <li><a href="/trocas-e-devolucoes/">Trocas e devoluções</a></li>
+          <li><a href="/entregas/">Prazos e entregas</a></li>
+          <li><a href="/privacidade/">Política de privacidade</a></li>
+          <li><a href="/termos/">Termos de uso</a></li>
+        </ul>
+        <h3 style="margin-top:20px">Pagamento seguro</h3>
+        <div class="pay" aria-label="Pix, Visa, Mastercard e boleto">
+          <span title="Pix"><svg class="ico"><use href="#b-pix"/></svg></span>
+          <span title="Visa"><svg class="ico"><use href="#b-visa"/></svg></span>
+          <span title="Mastercard"><svg class="ico"><use href="#b-mastercard"/></svg></span>
+          <span title="Boleto"><svg class="ico"><use href="#i-barcode"/></svg></span>
+        </div>
+      </div>
+    </div>
+    <div class="legal">
+      <span>Zang Editora Cristã, CNPJ {LOJA.cnpj}</span>
+      <span>© {new Date().getFullYear()} Zang Editora Cristã</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,29 @@
+---
+import { categorias, urlCategoria } from '../lib/loja';
+const atual = Astro.url.pathname;
+const curtos: Record<string, string> = { livros: 'Livros', pregacao: 'Pregação', ebd: 'Revistas', hinarios: 'Hinários', agendas: 'Agendas', kits: 'Kits' };
+---
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Zang Editora Cristã, página inicial">
+      <img src="/img/logo-160.webp" width="160" height="121" alt="">
+      <span>Zang Editora Cristã<small>Livros, revistas, hinários e agendas</small></span>
+    </a>
+    <nav class="nav" aria-label="Categorias">
+      {categorias.map((c) => (
+        <a href={urlCategoria(c.id)} aria-current={atual.startsWith(urlCategoria(c.id)) ? 'page' : undefined}>{curtos[c.id] ?? c.nome}</a>
+      ))}
+    </nav>
+    <div class="top-actions">
+      <a class="icon-btn" href="/produtos/#busca" aria-label="Buscar produtos"><svg class="ico"><use href="#i-search"/></svg></a>
+      <a class="icon-btn" href="/finalizar/" data-abrir-carrinho aria-label="Abrir carrinho" aria-controls="drawer"><svg class="ico"><use href="#i-bag"/></svg><span class="badge" id="badge" hidden>0</span></a>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mnav"><svg class="ico"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Categorias" hidden>
+    <div class="wrap">
+      {categorias.map((c) => <a href={urlCategoria(c.id)}>{c.nome}</a>)}
+      <a href="/produtos/">Todos os produtos</a>
+    </div>
+  </nav>
+</header>

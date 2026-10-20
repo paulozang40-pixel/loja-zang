@@ -1,0 +1,3225 @@
+{
+ "categorias": [
+  {
+   "id": "livros",
+   "nome": "Livros"
+  },
+  {
+   "id": "pregacao",
+   "nome": "Pregação e ensino"
+  },
+  {
+   "id": "ebd",
+   "nome": "Revistas e apostilas"
+  },
+  {
+   "id": "hinarios",
+   "nome": "Hinários e corinhos"
+  },
+  {
+   "id": "agendas",
+   "nome": "Agendas"
+  },
+  {
+   "id": "kits",
+   "nome": "Kits"
+  }
+ ],
+ "produtos": [
+  {
+   "slug": "a-realidade-do-inferno",
+   "nome": "A Realidade do Inferno",
+   "categoria": "livros",
+   "subtitulo": "O que a Bíblia, a ciência e a experiência humana revelam sobre o lugar que ninguém quer conhecer",
+   "descricao": [
+    "Um livro direto sobre um dos temas mais evitados da fé cristã. O Pr. Paulo Zang reúne o ensino das Escrituras, argumentos e testemunhos para responder às perguntas que muita gente tem medo de fazer: o inferno existe? Quem vai para lá? Existe saída?",
+    "A mensagem final é de esperança: há salvação em Cristo para todo aquele que crê."
+   ],
+   "ficha": [
+    [
+     "Páginas",
+     "145"
+    ],
+    [
+     "Formato",
+     "14,5 x 21 cm"
+    ]
+   ],
+   "novo": true,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "a-realidade-do-inferno",
+     "nome": null,
+     "preco": 28.3,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 27.5
+      },
+      {
+       "min": 5,
+       "preco": 26.9
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 4.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786502211144",
+     "imagens": [
+      {
+       "src": "/img/p/a-realidade-do-inferno-0-960.webp",
+       "thumb": "/img/p/a-realidade-do-inferno-0-480.webp",
+       "w": 311,
+       "h": 530,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 28.3,
+   "precoMax": 28.3
+  },
+  {
+   "slug": "o-pastor-de-hermas",
+   "nome": "O Pastor de Hermas",
+   "categoria": "livros",
+   "subtitulo": "Um livro do século II em nova tradução, fácil de ler",
+   "descricao": [
+    "Escrito em Roma no século II, O Pastor de Hermas foi um dos livros mais lidos pelos primeiros cristãos, com visões, mandamentos e parábolas sobre arrependimento e vida santa.",
+    "Esta edição traz uma tradução nova, feita a partir do texto grego, em linguagem fácil de ler. O texto está dividido em capítulos e versículos numerados, com notas de rodapé sobre palavras difíceis e curiosidades, introdução e glossário."
+   ],
+   "ficha": [],
+   "novo": true,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "o-pastor-de-hermas--simples",
+     "nome": "Edição simples",
+     "preco": 48.3,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 46.9
+      },
+      {
+       "min": 5,
+       "preco": 44.9
+      }
+     ],
+     "peso": 0.8,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786502363560",
+     "imagens": [
+      {
+       "src": "/img/p/o-pastor-de-hermas-simples-0-960.webp",
+       "thumb": "/img/p/o-pastor-de-hermas-simples-0-480.webp",
+       "w": 332,
+       "h": 544,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "o-pastor-de-hermas--luxo",
+     "nome": "Edição luxo",
+     "preco": 59.9,
+     "atacado": [],
+     "peso": 0.8,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786502363560",
+     "imagens": [
+      {
+       "src": "/img/p/o-pastor-de-hermas-simples-0-960.webp",
+       "thumb": "/img/p/o-pastor-de-hermas-simples-0-480.webp",
+       "w": 332,
+       "h": 544,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 48.3,
+   "precoMax": 59.9
+  },
+  {
+   "slug": "a-musica-do-ceu",
+   "nome": "A Música do Céu",
+   "categoria": "livros",
+   "subtitulo": "A história de Jennie Evans Moore Seymour",
+   "descricao": [
+    "Biografia de Jennie Evans Moore Seymour, uma das primeiras pessoas a receber o batismo no Espírito Santo no avivamento de 1906 em Los Angeles, que deu origem à Missão da Rua Azusa. Mais tarde, ela se casou com William J. Seymour, líder do avivamento.",
+    "Em tom narrativo, o livro acompanha sua vida, seu ministério e seu lugar na história do Movimento Pentecostal."
+   ],
+   "ficha": [],
+   "novo": true,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "a-musica-do-ceu",
+     "nome": null,
+     "preco": 28.9,
+     "atacado": [],
+     "peso": 0.35,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786502286333",
+     "imagens": [
+      {
+       "src": "/img/p/a-musica-do-ceu-0-960.webp",
+       "thumb": "/img/p/a-musica-do-ceu-0-480.webp",
+       "w": 312,
+       "h": 537,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 28.9,
+   "precoMax": 28.9
+  },
+  {
+   "slug": "cultos-nos-lares",
+   "nome": "Cultos nos Lares",
+   "categoria": "livros",
+   "subtitulo": "Famílias que cultuam, igrejas que crescem",
+   "descricao": [
+    "Um guia para levar o culto para dentro de casa. O livro mostra a base bíblica do culto doméstico e ajuda famílias e líderes a organizar momentos de oração, leitura da Palavra e comunhão nos lares."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "cultos-nos-lares",
+     "nome": null,
+     "preco": 32.3,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.35,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786501502731",
+     "imagens": [
+      {
+       "src": "/img/p/cultos-nos-lares-0-960.webp",
+       "thumb": "/img/p/cultos-nos-lares-0-480.webp",
+       "w": 210,
+       "h": 293,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 32.3,
+   "precoMax": 32.3
+  },
+  {
+   "slug": "estudos-biblicos-para-casais",
+   "nome": "Estudos Bíblicos para Casais",
+   "categoria": "livros",
+   "subtitulo": "Material para líderes e encontros de casais",
+   "descricao": [
+    "Estudos bíblicos sobre o casamento e a vida a dois, preparados para casais, pastores, professores e ministérios de casais.",
+    "Pode ser usado em encontros, em classes de Escola Bíblica ou no estudo do próprio casal."
+   ],
+   "ficha": [
+    [
+     "Páginas",
+     "196"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "estudos-biblicos-para-casais",
+     "nome": null,
+     "preco": 31.5,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.25,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 21.0
+     },
+     "gtin": "9786501464183",
+     "imagens": [
+      {
+       "src": "/img/p/estudos-biblicos-para-casais-0-960.webp",
+       "thumb": "/img/p/estudos-biblicos-para-casais-0-480.webp",
+       "w": 199,
+       "h": 274,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.5,
+   "precoMax": 31.5
+  },
+  {
+   "slug": "orando-como-jesus-ensinou",
+   "nome": "Orando como Jesus Ensinou",
+   "categoria": "livros",
+   "subtitulo": "Baseado na oração do Pai Nosso",
+   "descricao": [
+    "Um estudo sobre a oração a partir do modelo que Jesus deixou aos discípulos. Cada parte do Pai Nosso é explicada para ajudar o leitor a orar com mais entendimento, como os discípulos pediram: \"Senhor, ensina-nos a orar\" (Lucas 11.1)."
+   ],
+   "ficha": [
+    [
+     "Páginas",
+     "80"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "orando-como-jesus-ensinou",
+     "nome": null,
+     "preco": 18.0,
+     "atacado": [
+      {
+       "min": 5,
+       "preco": 16.0
+      }
+     ],
+     "peso": 0.31,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786500009057",
+     "imagens": [
+      {
+       "src": "/img/p/orando-como-jesus-ensinou-0-960.webp",
+       "thumb": "/img/p/orando-como-jesus-ensinou-0-480.webp",
+       "w": 210,
+       "h": 293,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 18.0,
+   "precoMax": 18.0
+  },
+  {
+   "slug": "mensagens-biblicas-vol-1",
+   "nome": "Mensagens Bíblicas, Vol. 1",
+   "categoria": "pregacao",
+   "subtitulo": "Esboços de sermões para pregação e estudos bíblicos",
+   "descricao": [
+    "Volume 1 da coleção Mensagens Bíblicas, com esboços de pregação do Pr. Paulo Zang organizados em tópicos a partir do texto bíblico.",
+    "Ajuda a preparar sermões, cultos e estudos bíblicos com mais segurança e clareza."
+   ],
+   "ficha": [
+    [
+     "Encadernação",
+     "Espiral"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "mensagens-biblicas-vol-1",
+     "nome": null,
+     "preco": 31.2,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.35,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786500109979",
+     "imagens": [
+      {
+       "src": "/img/p/mensagens-biblicas-vol-1-0-960.webp",
+       "thumb": "/img/p/mensagens-biblicas-vol-1-0-480.webp",
+       "w": 632,
+       "h": 875,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.2,
+   "precoMax": 31.2
+  },
+  {
+   "slug": "mensagens-biblicas-vol-2",
+   "nome": "Mensagens Bíblicas, Vol. 2",
+   "categoria": "pregacao",
+   "subtitulo": "Esboços de sermões para pregação e estudos bíblicos",
+   "descricao": [
+    "Volume 2 da coleção Mensagens Bíblicas, com esboços de pregação do Pr. Paulo Zang organizados em tópicos a partir do texto bíblico.",
+    "Ajuda a preparar sermões, cultos e estudos bíblicos com mais segurança e clareza."
+   ],
+   "ficha": [
+    [
+     "Encadernação",
+     "Espiral"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "mensagens-biblicas-vol-2",
+     "nome": null,
+     "preco": 31.3,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 29.8
+      }
+     ],
+     "peso": 0.35,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786500109917",
+     "imagens": [
+      {
+       "src": "/img/p/mensagens-biblicas-vol-2-0-960.webp",
+       "thumb": "/img/p/mensagens-biblicas-vol-2-0-480.webp",
+       "w": 610,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.3,
+   "precoMax": 31.3
+  },
+  {
+   "slug": "mensagens-biblicas-vol-3",
+   "nome": "Mensagens Bíblicas, Vol. 3",
+   "categoria": "pregacao",
+   "subtitulo": "Esboços de sermões para pregação e estudos bíblicos",
+   "descricao": [
+    "Volume 3 da coleção Mensagens Bíblicas, com esboços de pregação do Pr. Paulo Zang organizados em tópicos a partir do texto bíblico.",
+    "Ajuda a preparar sermões, cultos e estudos bíblicos com mais segurança e clareza."
+   ],
+   "ficha": [
+    [
+     "Encadernação",
+     "Espiral"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "mensagens-biblicas-vol-3",
+     "nome": null,
+     "preco": 31.5,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.35,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/mensagens-biblicas-vol-3-0-960.webp",
+       "thumb": "/img/p/mensagens-biblicas-vol-3-0-480.webp",
+       "w": 363,
+       "h": 552,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.5,
+   "precoMax": 31.5
+  },
+  {
+   "slug": "mensagens-biblicas-vol-4",
+   "nome": "Mensagens Bíblicas, Vol. 4",
+   "categoria": "pregacao",
+   "subtitulo": "Esboços de sermões para pregação e estudos bíblicos",
+   "descricao": [
+    "Volume 4 da coleção Mensagens Bíblicas, com esboços de pregação do Pr. Paulo Zang organizados em tópicos a partir do texto bíblico.",
+    "Ajuda a preparar sermões, cultos e estudos bíblicos com mais segurança e clareza."
+   ],
+   "ficha": [
+    [
+     "Encadernação",
+     "Espiral"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "mensagens-biblicas-vol-4",
+     "nome": null,
+     "preco": 32.1,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.23,
+     "dims": {
+      "altura": 2.0,
+      "largura": 18.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786500888287",
+     "imagens": [
+      {
+       "src": "/img/p/mensagens-biblicas-vol-4-0-960.webp",
+       "thumb": "/img/p/mensagens-biblicas-vol-4-0-480.webp",
+       "w": 321,
+       "h": 469,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 32.1,
+   "precoMax": 32.1
+  },
+  {
+   "slug": "mensagens-biblicas-vol-5",
+   "nome": "Mensagens Bíblicas, Vol. 5",
+   "categoria": "pregacao",
+   "subtitulo": "Esboços de sermões para pregação e estudos bíblicos",
+   "descricao": [
+    "Volume 5 da coleção Mensagens Bíblicas, com esboços de pregação do Pr. Paulo Zang organizados em tópicos a partir do texto bíblico.",
+    "Ajuda a preparar sermões, cultos e estudos bíblicos com mais segurança e clareza."
+   ],
+   "ficha": [
+    [
+     "Encadernação",
+     "Espiral"
+    ]
+   ],
+   "novo": true,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "mensagens-biblicas-vol-5",
+     "nome": null,
+     "preco": 32.5,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 31.0
+      }
+     ],
+     "peso": 0.45,
+     "dims": {
+      "altura": 2.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786501794686",
+     "imagens": [
+      {
+       "src": "/img/p/mensagens-biblicas-vol-5-0-960.webp",
+       "thumb": "/img/p/mensagens-biblicas-vol-5-0-480.webp",
+       "w": 783,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 32.5,
+   "precoMax": 32.5
+  },
+  {
+   "slug": "estudos-biblicos-para-obreiros-vol-1",
+   "nome": "Estudos Bíblicos para Obreiros, Vol. 1",
+   "categoria": "pregacao",
+   "subtitulo": "Ética, homilética e etiqueta",
+   "descricao": [
+    "Primeiro volume da série Estudos Bíblicos para Obreiros, com estudos para a formação de obreiros e líderes da igreja, incluindo ética cristã, homilética (preparo de sermões) e etiqueta ministerial."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "estudos-biblicos-para-obreiros-vol-1",
+     "nome": null,
+     "preco": 31.3,
+     "atacado": [],
+     "peso": 0.26,
+     "dims": {
+      "altura": 3.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/estudos-biblicos-para-obreiros-vol-1-0-960.webp",
+       "thumb": "/img/p/estudos-biblicos-para-obreiros-vol-1-0-480.webp",
+       "w": 657,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.3,
+   "precoMax": 31.3
+  },
+  {
+   "slug": "estudos-biblicos-para-obreiros-vol-2",
+   "nome": "Estudos Bíblicos para Obreiros, Vol. 2",
+   "categoria": "pregacao",
+   "subtitulo": "Formação bíblica para um ministério aprovado",
+   "descricao": [
+    "Segundo volume da série Estudos Bíblicos para Obreiros, com novos estudos para quem serve na obra de Deus: o bom obreiro, autoridade e submissão, vida devocional, dons ministeriais e o ministério pastoral."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "estudos-biblicos-para-obreiros-vol-2",
+     "nome": null,
+     "preco": 31.8,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.29,
+     "dims": {
+      "altura": 2.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786500804072",
+     "imagens": [
+      {
+       "src": "/img/p/estudos-biblicos-para-obreiros-vol-2-0-960.webp",
+       "thumb": "/img/p/estudos-biblicos-para-obreiros-vol-2-0-480.webp",
+       "w": 582,
+       "h": 864,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.8,
+   "precoMax": 31.8
+  },
+  {
+   "slug": "estudos-biblicos-para-obreiros-vol-3",
+   "nome": "Estudos Bíblicos para Obreiros, Vol. 3",
+   "categoria": "pregacao",
+   "subtitulo": "Facilidade para manusear, clareza para aprender",
+   "descricao": [
+    "Terceiro volume da série, em espiral, com estudos para obreiros apresentados com textos-chave, esquemas e quadros ilustrativos que facilitam o ensino e o estudo pessoal."
+   ],
+   "ficha": [
+    [
+     "Encadernação",
+     "Espiral"
+    ]
+   ],
+   "novo": true,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "estudos-biblicos-para-obreiros-vol-3",
+     "nome": null,
+     "preco": 33.8,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 32.3
+      },
+      {
+       "min": 5,
+       "preco": 30.3
+      }
+     ],
+     "peso": 0.6,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786502375334",
+     "imagens": [
+      {
+       "src": "/img/p/estudos-biblicos-para-obreiros-vol-3-0-960.webp",
+       "thumb": "/img/p/estudos-biblicos-para-obreiros-vol-3-0-480.webp",
+       "w": 342,
+       "h": 535,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 33.8,
+   "precoMax": 33.8
+  },
+  {
+   "slug": "ilustracoes",
+   "nome": "Ilustrações",
+   "categoria": "pregacao",
+   "subtitulo": "Histórias e anedotas cristãs para ilustrar a mensagem",
+   "descricao": [
+    "Uma coletânea de histórias, exemplos e anedotas cristãs para enriquecer pregações, aulas de Escola Bíblica e devocionais. Ajuda o pregador a tornar a mensagem mais clara e fácil de lembrar."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "ilustracoes",
+     "nome": null,
+     "preco": 32.3,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 31.0
+      },
+      {
+       "min": 4,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.27,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786500028140",
+     "imagens": [
+      {
+       "src": "/img/p/ilustracoes-0-960.webp",
+       "thumb": "/img/p/ilustracoes-0-480.webp",
+       "w": 568,
+       "h": 874,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 32.3,
+   "precoMax": 32.3
+  },
+  {
+   "slug": "voce-sabia",
+   "nome": "Você Sabia?",
+   "categoria": "pregacao",
+   "subtitulo": "Mais de 1.000 curiosidades bíblicas e históricas",
+   "descricao": [
+    "Mais de mil curiosidades sobre a Bíblia, seus personagens, lugares e costumes, e sobre a história do cristianismo.",
+    "Ótimo para professores, pregadores, gincanas bíblicas e para quem gosta de aprender."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "voce-sabia",
+     "nome": null,
+     "preco": 31.8,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.51,
+     "dims": {
+      "altura": 2.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786500556506",
+     "imagens": [
+      {
+       "src": "/img/p/voce-sabia-0-960.webp",
+       "thumb": "/img/p/voce-sabia-0-480.webp",
+       "w": 314,
+       "h": 469,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.8,
+   "precoMax": 31.8
+  },
+  {
+   "slug": "caderno-de-esbocos",
+   "nome": "Caderno para Anotações de Esboços",
+   "categoria": "pregacao",
+   "subtitulo": "Simples e objetivo",
+   "descricao": [
+    "Caderno para anotar e guardar seus esboços de pregação em um só lugar. Simples e objetivo, para levar ao púlpito, às reuniões e aos estudos."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "caderno-de-esbocos",
+     "nome": null,
+     "preco": 25.8,
+     "atacado": [],
+     "peso": 0.3,
+     "dims": {
+      "altura": 2.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/caderno-de-esbocos-0-960.webp",
+       "thumb": "/img/p/caderno-de-esbocos-0-480.webp",
+       "w": 761,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 25.8,
+   "precoMax": 25.8
+  },
+  {
+   "slug": "o-culto-pelos-padroes-biblicos",
+   "nome": "O Culto pelos Padrões Bíblicos",
+   "categoria": "ebd",
+   "subtitulo": "13 lições bíblicas",
+   "descricao": [
+    "Estudos sobre o culto desde o Antigo Testamento até os dias atuais, mostrando como Deus deseja ser adorado.",
+    "Lições: o culto pessoal e o culto coletivo, o culto no Antigo Testamento, no tabernáculo, na igreja primitiva e na história da igreja, louvor e adoração, o culto doméstico, elementos e contexto do culto, a música no culto, música cristã contemporânea, celebridades e shows gospel, o culto aceitável a Deus e o culto cristocêntrico."
+   ],
+   "ficha": [
+    [
+     "Lições",
+     "13"
+    ],
+    [
+     "Páginas",
+     "92"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "o-culto-pelos-padroes-biblicos",
+     "nome": null,
+     "preco": 19.6,
+     "atacado": [
+      {
+       "min": 5,
+       "preco": 17.0
+      }
+     ],
+     "peso": 0.27,
+     "dims": {
+      "altura": 2.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/o-culto-pelos-padroes-biblicos-0-960.webp",
+       "thumb": "/img/p/o-culto-pelos-padroes-biblicos-0-480.webp",
+       "w": 641,
+       "h": 846,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 19.6,
+   "precoMax": 19.6
+  },
+  {
+   "slug": "o-cristao-e-as-financas",
+   "nome": "O Cristão e as Finanças",
+   "categoria": "ebd",
+   "subtitulo": "13 lições para uma vida financeira alinhada aos princípios de Deus",
+   "descricao": [
+    "Revista para Escola Bíblica e estudos em grupo sobre dinheiro, mordomia e prosperidade à luz da Bíblia.",
+    "Lições: mordomia cristã, o cristão e o dinheiro, o dízimo, o dízimo na graça, oferta aceitável, o princípio da honra, investindo em missões, mude sua mentalidade, administração, saindo das dívidas, pecados no dinheiro, finanças na família e a verdadeira prosperidade."
+   ],
+   "ficha": [
+    [
+     "Lições",
+     "13"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "o-cristao-e-as-financas",
+     "nome": null,
+     "preco": 19.2,
+     "atacado": [],
+     "peso": 0.2,
+     "dims": {
+      "altura": 2.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/o-cristao-e-as-financas-0-960.webp",
+       "thumb": "/img/p/o-cristao-e-as-financas-0-480.webp",
+       "w": 586,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 19.2,
+   "precoMax": 19.2
+  },
+  {
+   "slug": "o-calendario-profetico",
+   "nome": "O Calendário Profético",
+   "categoria": "ebd",
+   "subtitulo": "13 lições de escatologia",
+   "descricao": [
+    "Revista com 13 lições sobre o que a Bíblia diz a respeito do futuro e dos acontecimentos finais. Para Escola Bíblica, estudos em grupo e estudo pessoal."
+   ],
+   "ficha": [
+    [
+     "Lições",
+     "13"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "o-calendario-profetico",
+     "nome": null,
+     "preco": 18.0,
+     "atacado": [
+      {
+       "min": 5,
+       "preco": 16.0
+      }
+     ],
+     "peso": 0.19,
+     "dims": {
+      "altura": 2.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": "9786500252583",
+     "imagens": [
+      {
+       "src": "/img/p/o-calendario-profetico-0-960.webp",
+       "thumb": "/img/p/o-calendario-profetico-0-480.webp",
+       "w": 280,
+       "h": 464,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 18.0,
+   "precoMax": 18.0
+  },
+  {
+   "slug": "o-espirito-santo",
+   "nome": "O Espírito Santo",
+   "categoria": "ebd",
+   "subtitulo": "Sua pessoa, sua obra, o batismo e os dons",
+   "descricao": [
+    "Lições bíblicas sobre a pessoa e a obra do Espírito Santo, o batismo no Espírito e os dons espirituais. Para Escola Bíblica, discipulado e estudo pessoal."
+   ],
+   "ficha": [
+    [
+     "Lições",
+     "13"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "o-espirito-santo",
+     "nome": null,
+     "preco": 18.0,
+     "atacado": [
+      {
+       "min": 5,
+       "preco": 16.0
+      }
+     ],
+     "peso": 0.38,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 25.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/o-espirito-santo-0-960.webp",
+       "thumb": "/img/p/o-espirito-santo-0-480.webp",
+       "w": 281,
+       "h": 464,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 18.0,
+   "precoMax": 18.0
+  },
+  {
+   "slug": "desafios-da-fe-crista",
+   "nome": "Desafios da Fé Cristã na Pós-Modernidade",
+   "categoria": "ebd",
+   "subtitulo": "13 lições",
+   "descricao": [
+    "Revista com respostas bíblicas para os desafios que o cristão enfrenta hoje.",
+    "Lições: pós-modernidade, tecnologia (bênção ou maldição?), depressão e ansiedade, idolatria moderna, a importância da leitura bíblica, o poder da Palavra, reacendendo a chama, relacionamentos, a família do século XXI, criação e evolução, inovação e modismos, o esfriamento do amor e os desigrejados."
+   ],
+   "ficha": [
+    [
+     "Lições",
+     "13"
+    ],
+    [
+     "Formato",
+     "14,5 x 21 cm"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "desafios-da-fe-crista",
+     "nome": null,
+     "preco": 19.2,
+     "atacado": [],
+     "peso": 0.2,
+     "dims": {
+      "altura": 2.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/desafios-da-fe-crista-0-960.webp",
+       "thumb": "/img/p/desafios-da-fe-crista-0-480.webp",
+       "w": 960,
+       "h": 934,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 19.2,
+   "precoMax": 19.2
+  },
+  {
+   "slug": "curso-de-batismo",
+   "nome": "Curso de Batismo",
+   "categoria": "ebd",
+   "subtitulo": "Discipulado básico em 13 lições",
+   "descricao": [
+    "Curso de discipulado para preparar novos convertidos para o batismo nas águas, em 13 lições.",
+    "Existe a revista do aluno e a revista do professor. Para a turma, escolha um dos kits."
+   ],
+   "ficha": [
+    [
+     "Lições",
+     "13"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "curso-de-batismo--aluno",
+     "nome": "Revista do aluno",
+     "preco": 15.0,
+     "atacado": [
+      {
+       "min": 5,
+       "preco": 14.0
+      },
+      {
+       "min": 10,
+       "preco": 13.0
+      }
+     ],
+     "peso": 0.31,
+     "dims": {
+      "altura": 4.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/curso-de-batismo-aluno-0-960.webp",
+       "thumb": "/img/p/curso-de-batismo-aluno-0-480.webp",
+       "w": 678,
+       "h": 960,
+       "fundo": "foto"
+      }
+     ]
+    },
+    {
+     "id": "curso-de-batismo--kit-1-1",
+     "nome": "Kit 1 aluno + 1 professor",
+     "preco": 41.9,
+     "atacado": [],
+     "peso": 0.3,
+     "dims": {
+      "altura": 4.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/curso-de-batismo-kit-1-1-0-960.webp",
+       "thumb": "/img/p/curso-de-batismo-kit-1-1-0-480.webp",
+       "w": 960,
+       "h": 827,
+       "fundo": "branco"
+      },
+      {
+       "src": "/img/p/curso-de-batismo-kit-1-1-1-960.webp",
+       "thumb": "/img/p/curso-de-batismo-kit-1-1-1-480.webp",
+       "w": 198,
+       "h": 296,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "curso-de-batismo--kit-5-1",
+     "nome": "Kit 5 alunos + 1 professor",
+     "preco": 74.8,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 70.0
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 4.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": "9786501850337",
+     "imagens": [
+      {
+       "src": "/img/p/curso-de-batismo-kit-1-1-0-960.webp",
+       "thumb": "/img/p/curso-de-batismo-kit-1-1-0-480.webp",
+       "w": 960,
+       "h": 827,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 15.0,
+   "precoMax": 74.8
+  },
+  {
+   "slug": "evangelismo-e-integracao",
+   "nome": "Evangelismo e Integração",
+   "categoria": "ebd",
+   "subtitulo": "Estudo bíblico sobre como evangelizar e discipular",
+   "descricao": [
+    "Estudo bíblico prático sobre evangelismo e integração de novos convertidos: como anunciar o evangelho e acompanhar quem chega à igreja até se firmar na fé.",
+    "Avulso ou em kit com 10 apostilas para a equipe."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "evangelismo-e-integracao--unidade",
+     "nome": "1 apostila",
+     "preco": 10.2,
+     "atacado": [],
+     "peso": 0.12,
+     "dims": {
+      "altura": 1.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/evangelismo-e-integracao-unidade-0-960.webp",
+       "thumb": "/img/p/evangelismo-e-integracao-unidade-0-480.webp",
+       "w": 292,
+       "h": 506,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "evangelismo-e-integracao--kit-10",
+     "nome": "Kit com 10 apostilas",
+     "preco": 59.0,
+     "atacado": [],
+     "peso": 1.2,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/evangelismo-e-integracao-kit-10-0-960.webp",
+       "thumb": "/img/p/evangelismo-e-integracao-kit-10-0-480.webp",
+       "w": 960,
+       "h": 836,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 10.2,
+   "precoMax": 59.0
+  },
+  {
+   "slug": "obreiro-aprovado",
+   "nome": "O Obreiro Aprovado",
+   "categoria": "ebd",
+   "subtitulo": "Estudo bíblico para obreiros",
+   "descricao": [
+    "Estudo bíblico para obreiros inspirado em 2 Timóteo 2.15: \"Procura apresentar-te a Deus aprovado, como obreiro que não tem de que se envergonhar\".",
+    "Material curto e prático para reuniões de obreiros e classes de formação. Também em kit com 10 livros para a liderança."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "obreiro-aprovado--unidade",
+     "nome": "1 livro",
+     "preco": 10.2,
+     "atacado": [],
+     "peso": 0.12,
+     "dims": {
+      "altura": 1.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/obreiro-aprovado-unidade-0-960.webp",
+       "thumb": "/img/p/obreiro-aprovado-unidade-0-480.webp",
+       "w": 204,
+       "h": 341,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "obreiro-aprovado--kit-10",
+     "nome": "Kit com 10 livros",
+     "preco": 59.0,
+     "atacado": [],
+     "peso": 1.2,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/obreiro-aprovado-kit-10-0-960.webp",
+       "thumb": "/img/p/obreiro-aprovado-kit-10-0-480.webp",
+       "w": 763,
+       "h": 960,
+       "fundo": "foto"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 10.2,
+   "precoMax": 59.0
+  },
+  {
+   "slug": "olho-gordo-feiticaria-e-maldicao",
+   "nome": "Olho Gordo, Feitiçaria e Maldição: Isso Pega no Crente?",
+   "categoria": "ebd",
+   "subtitulo": "Respostas bíblicas para vencer o medo e viver seguro em Cristo",
+   "descricao": [
+    "\"Fizeram um trabalho contra você!\" Poucas frases tiram tanto a paz de uma pessoa. Esta apostila responde com a Bíblia aberta se feitiçaria, olho gordo e maldição de família podem atingir o crente, começando por quem Deus é.",
+    "Em quatro partes: quem é o nosso Deus, as promessas de Deus para os seus, o que são essas crenças e o que a Bíblia responde a cada uma, e como vive o crente seguro. Tem quadros para guardar, tabela comparativa e perguntas para revisão.",
+    "Ideal para estudo pessoal, células, Escola Bíblica, discipulado e para líderes que orientam pessoas com medo de \"trabalhos\" e inveja."
+   ],
+   "ficha": [
+    [
+     "Páginas",
+     "40"
+    ],
+    [
+     "Formato",
+     "A5 (14,8 x 21 cm)"
+    ],
+    [
+     "Versão bíblica",
+     "Almeida Revista e Corrigida"
+    ]
+   ],
+   "novo": true,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "olho-gordo-feiticaria-e-maldicao",
+     "nome": null,
+     "preco": 14.9,
+     "atacado": [],
+     "peso": 0.15,
+     "dims": {
+      "altura": 2.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/olho-gordo-feiticaria-e-maldicao-0-960.webp",
+       "thumb": "/img/p/olho-gordo-feiticaria-e-maldicao-0-480.webp",
+       "w": 696,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 14.9,
+   "precoMax": 14.9
+  },
+  {
+   "slug": "hinos-antigos",
+   "nome": "Hinos Antigos",
+   "categoria": "hinarios",
+   "subtitulo": "200 hinos para você cantar e adorar ao Senhor",
+   "descricao": [
+    "Livro com as letras de 200 hinos antigos que marcaram gerações de crentes, para cantar no culto, nos lares e nos círculos de oração.",
+    "Escolha a versão em espiral, a versão luxo com capa dura floral ou a opção com as músicas gravadas."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "hinos-antigos--espiral",
+     "nome": "Espiral",
+     "preco": 31.2,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 30.0
+      }
+     ],
+     "peso": 0.25,
+     "dims": {
+      "altura": 2.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/hinos-antigos-espiral-0-960.webp",
+       "thumb": "/img/p/hinos-antigos-espiral-0-480.webp",
+       "w": 756,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "hinos-antigos--luxo",
+     "nome": "Luxo, capa dura floral",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 43.9
+      },
+      {
+       "min": 5,
+       "preco": 43.1
+      },
+      {
+       "min": 10,
+       "preco": 42.5
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/hinos-antigos-luxo-0-960.webp",
+       "thumb": "/img/p/hinos-antigos-luxo-0-480.webp",
+       "w": 768,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "hinos-antigos--musicas",
+     "nome": "Músicas gravadas",
+     "preco": 63.85,
+     "atacado": [],
+     "peso": 0.35,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/hinos-antigos-musicas-0-960.webp",
+       "thumb": "/img/p/hinos-antigos-musicas-0-480.webp",
+       "w": 452,
+       "h": 397,
+       "fundo": "transparente"
+      },
+      {
+       "src": "/img/p/hinos-antigos-espiral-0-960.webp",
+       "thumb": "/img/p/hinos-antigos-espiral-0-480.webp",
+       "w": 756,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 31.2,
+   "precoMax": 63.85
+  },
+  {
+   "slug": "hinario-sucessos-evangelicos",
+   "nome": "Hinário Sucessos Evangélicos",
+   "categoria": "hinarios",
+   "subtitulo": "200 letras de canções que são sucesso até hoje",
+   "descricao": [
+    "Hinário com as letras de 200 canções evangélicas que marcaram época e continuam sendo cantadas nas igrejas. Em espiral ou na versão luxo com capa dura floral."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "hinario-sucessos-evangelicos--espiral",
+     "nome": "Espiral",
+     "preco": 32.2,
+     "atacado": [],
+     "peso": 0.25,
+     "dims": {
+      "altura": 2.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/hinario-sucessos-evangelicos-espiral-0-960.webp",
+       "thumb": "/img/p/hinario-sucessos-evangelicos-espiral-0-480.webp",
+       "w": 656,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "hinario-sucessos-evangelicos--luxo",
+     "nome": "Luxo, capa dura floral",
+     "preco": 49.9,
+     "atacado": [],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/hinario-sucessos-evangelicos-luxo-0-960.webp",
+       "thumb": "/img/p/hinario-sucessos-evangelicos-luxo-0-480.webp",
+       "w": 761,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 32.2,
+   "precoMax": 49.9
+  },
+  {
+   "slug": "corinhos-avivados",
+   "nome": "Corinhos Avivados",
+   "categoria": "hinarios",
+   "subtitulo": "Batei palmas, todos os povos; aclamai a Deus com voz de triunfo (Salmo 47.1)",
+   "descricao": [
+    "Livreto com as letras dos corinhos de fogo e avivamento cantados nas igrejas pentecostais.",
+    "Tamanho médio, tamanho grande com letra gigante (boa para quem tem dificuldade de leitura) ou versão luxo floral."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "corinhos-avivados--medio",
+     "nome": "Médio",
+     "preco": 18.0,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 17.0
+      },
+      {
+       "min": 4,
+       "preco": 16.0
+      },
+      {
+       "min": 10,
+       "preco": 15.0
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 2.0,
+      "largura": 11.0,
+      "comprimento": 20.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/corinhos-avivados-medio-0-960.webp",
+       "thumb": "/img/p/corinhos-avivados-medio-0-480.webp",
+       "w": 632,
+       "h": 875,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "corinhos-avivados--grande",
+     "nome": "Grande, letra gigante",
+     "preco": 31.2,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 30.8
+      },
+      {
+       "min": 3,
+       "preco": 30.5
+      },
+      {
+       "min": 5,
+       "preco": 29.9
+      }
+     ],
+     "peso": 0.2,
+     "dims": {
+      "altura": 4.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/corinhos-avivados-grande-0-960.webp",
+       "thumb": "/img/p/corinhos-avivados-grande-0-480.webp",
+       "w": 398,
+       "h": 578,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "corinhos-avivados--luxo",
+     "nome": "Luxo floral, grande",
+     "preco": 44.9,
+     "atacado": [],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 18.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/corinhos-avivados-luxo-0-960.webp",
+       "thumb": "/img/p/corinhos-avivados-luxo-0-480.webp",
+       "w": 771,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 18.0,
+   "precoMax": 44.9
+  },
+  {
+   "slug": "agenda-crista-feminina-2027",
+   "nome": "Agenda Cristã Feminina 2027",
+   "categoria": "agendas",
+   "subtitulo": "Com versículos bíblicos, wire-o e capa laminada",
+   "descricao": [
+    "Perfeita para a organização diária e o crescimento espiritual. Tem versículos bíblicos em todas as páginas, encadernação wire-o que abre totalmente e facilita a escrita, e capa laminada de alta durabilidade.",
+    "Traz calendários de 2027 e 2028. Um presente para pastoras, líderes, amigas e irmãs da igreja, ou para começar o ano com propósito e fé."
+   ],
+   "ficha": [
+    [
+     "Ano",
+     "2027"
+    ],
+    [
+     "Páginas",
+     "2 dias por página"
+    ],
+    [
+     "Encadernação",
+     "Wire-o"
+    ],
+    [
+     "Capa",
+     "Laminada"
+    ]
+   ],
+   "novo": true,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "agenda-crista-feminina-2027--floral-rosa",
+     "nome": "Floral Rosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-floral-rosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-floral-rosa-0-480.webp",
+       "w": 795,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--floral-verde",
+     "nome": "Floral Verde",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-floral-verde-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-floral-verde-0-480.webp",
+       "w": 795,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--borboletas",
+     "nome": "Borboletas",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-borboletas-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-borboletas-0-480.webp",
+       "w": 795,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--floral-lilas",
+     "nome": "Floral Lilás",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-floral-lilas-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-floral-lilas-0-480.webp",
+       "w": 794,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--marmore-rosa",
+     "nome": "Mármore Rosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-marmore-rosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-marmore-rosa-0-480.webp",
+       "w": 793,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--seja-forte-e-corajosa",
+     "nome": "Seja Forte e Corajosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-seja-forte-e-corajosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-seja-forte-e-corajosa-0-480.webp",
+       "w": 776,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--sou-filha-do-rei",
+     "nome": "Sou Filha do Rei",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-sou-filha-do-rei-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-sou-filha-do-rei-0-480.webp",
+       "w": 777,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--leoa-forte-e-corajosa",
+     "nome": "Leoa Forte e Corajosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-leoa-forte-e-corajosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-leoa-forte-e-corajosa-0-480.webp",
+       "w": 777,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--yeshua",
+     "nome": "Yeshua",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-yeshua-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-yeshua-0-480.webp",
+       "w": 777,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-2027--mulher-virtuosa",
+     "nome": "Mulher Virtuosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-2027-mulher-virtuosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-2027-mulher-virtuosa-0-480.webp",
+       "w": 777,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "src": "/img/p/agenda-crista-feminina-2027-extra-0-960.webp",
+     "thumb": "/img/p/agenda-crista-feminina-2027-extra-0-480.webp",
+     "w": 715,
+     "h": 960,
+     "fundo": "branco"
+    },
+    {
+     "src": "/img/p/agenda-crista-feminina-2027-extra-1-960.webp",
+     "thumb": "/img/p/agenda-crista-feminina-2027-extra-1-480.webp",
+     "w": 715,
+     "h": 960,
+     "fundo": "branco"
+    },
+    {
+     "src": "/img/p/agenda-crista-feminina-2027-extra-2-960.webp",
+     "thumb": "/img/p/agenda-crista-feminina-2027-extra-2-480.webp",
+     "w": 715,
+     "h": 960,
+     "fundo": "branco"
+    }
+   ],
+   "precoMin": 44.9,
+   "precoMax": 44.9
+  },
+  {
+   "slug": "agenda-crista-masculina-2027",
+   "nome": "Agenda Cristã Masculina 2027",
+   "categoria": "agendas",
+   "subtitulo": "Com versículos bíblicos, wire-o e capa laminada",
+   "descricao": [
+    "Perfeita para a organização diária e o crescimento espiritual. Tem versículos bíblicos em todas as páginas, encadernação wire-o que abre totalmente e facilita a escrita, e capa laminada de alta durabilidade.",
+    "Traz planejamento mensal e controle financeiro. Um presente para pastores, líderes, amigos e irmãos da igreja."
+   ],
+   "ficha": [
+    [
+     "Ano",
+     "2027"
+    ],
+    [
+     "Encadernação",
+     "Wire-o"
+    ],
+    [
+     "Capa",
+     "Laminada"
+    ]
+   ],
+   "novo": true,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "agenda-crista-masculina-2027--leao-seja-forte-e-corajoso",
+     "nome": "Leão Seja Forte e Corajoso",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-leao-seja-forte-e-corajoso-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-leao-seja-forte-e-corajoso-0-480.webp",
+       "w": 787,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--seja-forte-e-corajoso-azul",
+     "nome": "Seja Forte e Corajoso Azul",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-seja-forte-e-corajoso-azul-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-seja-forte-e-corajoso-azul-0-480.webp",
+       "w": 767,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--escudo-da-fe",
+     "nome": "Escudo da Fé",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-escudo-da-fe-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-escudo-da-fe-0-480.webp",
+       "w": 784,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--jesus-nome-acima-de-todo-nome",
+     "nome": "Jesus, Nome Acima de Todo Nome",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-jesus-nome-acima-de-todo-nome-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-jesus-nome-acima-de-todo-nome-0-480.webp",
+       "w": 784,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--jesus-salva",
+     "nome": "Jesus Salva",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-jesus-salva-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-jesus-salva-0-480.webp",
+       "w": 785,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--tudo-posso",
+     "nome": "Tudo Posso",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-tudo-posso-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-tudo-posso-0-480.webp",
+       "w": 785,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--leao-aquarela",
+     "nome": "Leão Aquarela",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-leao-aquarela-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-leao-aquarela-0-480.webp",
+       "w": 786,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-masculina-2027--leao-colorido",
+     "nome": "Leão Colorido",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 44.43
+      },
+      {
+       "min": 5,
+       "preco": 43.36
+      },
+      {
+       "min": 10,
+       "preco": 41.19
+      }
+     ],
+     "peso": 0.4,
+     "dims": {
+      "altura": 8.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-2027-leao-colorido-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-2027-leao-colorido-0-480.webp",
+       "w": 786,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "src": "/img/p/agenda-crista-masculina-2027-extra-0-960.webp",
+     "thumb": "/img/p/agenda-crista-masculina-2027-extra-0-480.webp",
+     "w": 639,
+     "h": 960,
+     "fundo": "branco"
+    },
+    {
+     "src": "/img/p/agenda-crista-masculina-2027-extra-1-960.webp",
+     "thumb": "/img/p/agenda-crista-masculina-2027-extra-1-480.webp",
+     "w": 634,
+     "h": 960,
+     "fundo": "branco"
+    },
+    {
+     "src": "/img/p/agenda-crista-masculina-2027-extra-2-960.webp",
+     "thumb": "/img/p/agenda-crista-masculina-2027-extra-2-480.webp",
+     "w": 641,
+     "h": 960,
+     "fundo": "branco"
+    }
+   ],
+   "precoMin": 44.9,
+   "precoMax": 44.9
+  },
+  {
+   "slug": "agenda-crista-feminina-permanente",
+   "nome": "Agenda Cristã Feminina Permanente",
+   "categoria": "agendas",
+   "subtitulo": "Sem ano impresso, com versículos e capa dura laminada",
+   "descricao": [
+    "Agenda permanente: não tem ano impresso, então você começa a usar em qualquer data. Tem versículos bíblicos nas páginas, dois dias por página, capa dura laminada e encadernação wire-o."
+   ],
+   "ficha": [
+    [
+     "Páginas",
+     "2 dias por página"
+    ],
+    [
+     "Capa",
+     "Dura, laminada"
+    ],
+    [
+     "Encadernação",
+     "Wire-o"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "agenda-crista-feminina-permanente--floral",
+     "nome": "Floral",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-floral-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-floral-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-permanente--floral-delicado",
+     "nome": "Floral Delicado",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-floral-delicado-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-floral-delicado-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-permanente--menina-forte-e-corajosa",
+     "nome": "Menina Forte e Corajosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-menina-forte-e-corajosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-menina-forte-e-corajosa-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-permanente--forte-e-corajosa",
+     "nome": "Forte e Corajosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-forte-e-corajosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-forte-e-corajosa-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-permanente--filha-do-rei",
+     "nome": "Filha do Rei",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-filha-do-rei-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-filha-do-rei-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-permanente--mulher-virtuosa",
+     "nome": "Mulher Virtuosa",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-mulher-virtuosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-mulher-virtuosa-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-feminina-permanente--orando",
+     "nome": "Orando",
+     "preco": 44.9,
+     "atacado": [
+      {
+       "min": 4,
+       "preco": 43.84
+      },
+      {
+       "min": 10,
+       "preco": 41.3
+      }
+     ],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-orando-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-orando-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "src": "/img/p/agenda-crista-feminina-permanente-extra-0-960.webp",
+     "thumb": "/img/p/agenda-crista-feminina-permanente-extra-0-480.webp",
+     "w": 654,
+     "h": 960,
+     "fundo": "branco"
+    }
+   ],
+   "precoMin": 44.9,
+   "precoMax": 44.9
+  },
+  {
+   "slug": "agenda-crista-permanente-diaria",
+   "nome": "Agenda Cristã Permanente Diária",
+   "categoria": "agendas",
+   "subtitulo": "Um dia por página, com versículo bíblico em cada dia",
+   "descricao": [
+    "Para quem escreve bastante: uma página inteira para cada dia, com um versículo bíblico no rodapé. É permanente, sem ano impresso, para começar a usar em qualquer data."
+   ],
+   "ficha": [
+    [
+     "Páginas",
+     "1 dia por página"
+    ],
+    [
+     "Encadernação",
+     "Wire-o"
+    ]
+   ],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "agenda-crista-permanente-diaria--forte-e-corajosa",
+     "nome": "Forte e Corajosa",
+     "preco": 79.0,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 74.9
+      },
+      {
+       "min": 5,
+       "preco": 72.3
+      }
+     ],
+     "peso": 1.01,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-forte-e-corajosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-forte-e-corajosa-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-permanente-diaria--forte-e-corajosa-floral",
+     "nome": "Forte e Corajosa Floral",
+     "preco": 79.0,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 74.9
+      },
+      {
+       "min": 5,
+       "preco": 72.3
+      }
+     ],
+     "peso": 1.01,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-menina-forte-e-corajosa-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-menina-forte-e-corajosa-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-permanente-diaria--floral-delicado",
+     "nome": "Floral Delicado",
+     "preco": 79.0,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 74.9
+      },
+      {
+       "min": 5,
+       "preco": 72.3
+      }
+     ],
+     "peso": 1.01,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-floral-delicado-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-floral-delicado-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "agenda-crista-permanente-diaria--orando",
+     "nome": "Orando",
+     "preco": 79.0,
+     "atacado": [
+      {
+       "min": 3,
+       "preco": 74.9
+      },
+      {
+       "min": 5,
+       "preco": 72.3
+      }
+     ],
+     "peso": 1.01,
+     "dims": {
+      "altura": 8.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-feminina-permanente-orando-0-960.webp",
+       "thumb": "/img/p/agenda-crista-feminina-permanente-orando-0-480.webp",
+       "w": 759,
+       "h": 960,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [
+    {
+     "src": "/img/p/agenda-crista-permanente-diaria-extra-0-960.webp",
+     "thumb": "/img/p/agenda-crista-permanente-diaria-extra-0-480.webp",
+     "w": 701,
+     "h": 960,
+     "fundo": "branco"
+    },
+    {
+     "src": "/img/p/agenda-crista-permanente-diaria-extra-1-960.webp",
+     "thumb": "/img/p/agenda-crista-permanente-diaria-extra-1-480.webp",
+     "w": 688,
+     "h": 960,
+     "fundo": "branco"
+    }
+   ],
+   "precoMin": 79.0,
+   "precoMax": 79.0
+  },
+  {
+   "slug": "agenda-crista-masculina-permanente",
+   "nome": "Agenda Cristã Masculina Permanente",
+   "categoria": "agendas",
+   "subtitulo": "Sem ano impresso, com versículos e capa laminada",
+   "descricao": [
+    "Agenda permanente masculina com versículos bíblicos. Não tem ano impresso, então você começa a usar em qualquer data."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "agenda-crista-masculina-permanente",
+     "nome": null,
+     "preco": 44.9,
+     "atacado": [],
+     "peso": 0.69,
+     "dims": {
+      "altura": 3.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/agenda-crista-masculina-permanente-0-960.webp",
+       "thumb": "/img/p/agenda-crista-masculina-permanente-0-480.webp",
+       "w": 679,
+       "h": 960,
+       "fundo": "foto"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 44.9,
+   "precoMax": 44.9
+  },
+  {
+   "slug": "kit-estudos-biblicos-para-obreiros",
+   "nome": "Kit Estudos Bíblicos para Obreiros, Vols. 1 e 2",
+   "categoria": "kits",
+   "subtitulo": "Material de apoio para o ministério",
+   "descricao": [
+    "Os dois primeiros volumes da série Estudos Bíblicos para Obreiros juntos.",
+    "Temas: o bom obreiro, cuidado de si e da doutrina, autoridade e submissão, vida devocional e ministério, sacerdócio e dons ministeriais, ministério pastoral, deveres e tipos de obreiros, diáconos, diaconisas e presbíteros, e o ministério do pregador."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": true,
+   "variantes": [
+    {
+     "id": "kit-estudos-biblicos-para-obreiros",
+     "nome": null,
+     "preco": 59.9,
+     "atacado": [],
+     "peso": 0.5,
+     "dims": {
+      "altura": 4.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-estudos-biblicos-para-obreiros-0-960.webp",
+       "thumb": "/img/p/kit-estudos-biblicos-para-obreiros-0-480.webp",
+       "w": 960,
+       "h": 960,
+       "fundo": "foto"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 59.9,
+   "precoMax": 59.9
+  },
+  {
+   "slug": "kit-mensagens-biblicas",
+   "nome": "Kit Mensagens Bíblicas",
+   "categoria": "kits",
+   "subtitulo": "Coleção de esboços de pregação do Pr. Paulo Zang",
+   "descricao": [
+    "Monte sua coleção de esboços de pregação com os volumes de Mensagens Bíblicas em kit, por um preço menor do que comprando separado."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "kit-mensagens-biblicas--vol-1-a-5",
+     "nome": "Vols. 1 a 5",
+     "preco": 135.0,
+     "atacado": [],
+     "peso": 1.01,
+     "dims": {
+      "altura": 10.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-mensagens-biblicas-vol-1-a-5-0-960.webp",
+       "thumb": "/img/p/kit-mensagens-biblicas-vol-1-a-5-0-480.webp",
+       "w": 960,
+       "h": 921,
+       "fundo": "foto"
+      }
+     ]
+    },
+    {
+     "id": "kit-mensagens-biblicas--vol-1-a-4",
+     "nome": "Vols. 1 a 4",
+     "preco": 110.0,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 105.0
+      }
+     ],
+     "peso": 1.01,
+     "dims": {
+      "altura": 6.0,
+      "largura": 16.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-mensagens-biblicas-vol-1-a-4-0-960.webp",
+       "thumb": "/img/p/kit-mensagens-biblicas-vol-1-a-4-0-480.webp",
+       "w": 929,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "kit-mensagens-biblicas--vol-1-a-3",
+     "nome": "Vols. 1 a 3",
+     "preco": 85.0,
+     "atacado": [],
+     "peso": 0.9,
+     "dims": {
+      "altura": 6.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-mensagens-biblicas-vol-1-a-3-0-960.webp",
+       "thumb": "/img/p/kit-mensagens-biblicas-vol-1-a-3-0-480.webp",
+       "w": 960,
+       "h": 705,
+       "fundo": "branco"
+      }
+     ]
+    },
+    {
+     "id": "kit-mensagens-biblicas--vol-4-e-5",
+     "nome": "Vols. 4 e 5",
+     "preco": 65.0,
+     "atacado": [],
+     "peso": 0.7,
+     "dims": {
+      "altura": 4.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-mensagens-biblicas-vol-4-e-5-0-960.webp",
+       "thumb": "/img/p/kit-mensagens-biblicas-vol-4-e-5-0-480.webp",
+       "w": 960,
+       "h": 842,
+       "fundo": "transparente"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 65.0,
+   "precoMax": 135.0
+  },
+  {
+   "slug": "kit-hinos-sucessos-corinhos",
+   "nome": "Kit Hinos Antigos, Sucessos Evangélicos e Corinhos Avivados",
+   "categoria": "kits",
+   "subtitulo": "Os três livros de louvor da editora",
+   "descricao": [
+    "Hinos Antigos, Hinário Sucessos Evangélicos e Corinhos Avivados juntos. Escolha a versão simples ou a versão luxo com capas florais."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "kit-hinos-sucessos-corinhos--simples",
+     "nome": "Versão simples",
+     "preco": 75.0,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 72.1
+      }
+     ],
+     "peso": 0.5,
+     "dims": {
+      "altura": 5.0,
+      "largura": 17.0,
+      "comprimento": 25.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-hinos-sucessos-corinhos-simples-0-960.webp",
+       "thumb": "/img/p/kit-hinos-sucessos-corinhos-simples-0-480.webp",
+       "w": 960,
+       "h": 632,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "kit-hinos-sucessos-corinhos--luxo",
+     "nome": "Versão luxo floral",
+     "preco": 135.0,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 133.0
+      },
+      {
+       "min": 5,
+       "preco": 130.0
+      }
+     ],
+     "peso": 1.01,
+     "dims": {
+      "altura": 10.0,
+      "largura": 17.0,
+      "comprimento": 24.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-hinos-sucessos-corinhos-luxo-0-960.webp",
+       "thumb": "/img/p/kit-hinos-sucessos-corinhos-luxo-0-480.webp",
+       "w": 933,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 75.0,
+   "precoMax": 135.0
+  },
+  {
+   "slug": "kit-corinhos-avivados",
+   "nome": "Kit Corinhos Avivados",
+   "categoria": "kits",
+   "subtitulo": "Para distribuir na igreja, no círculo de oração e no louvor",
+   "descricao": [
+    "Corinhos Avivados em quantidade, para a igreja, o círculo de oração ou o grupo de louvor."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "kit-corinhos-avivados--3",
+     "nome": "3 unidades",
+     "preco": 45.0,
+     "atacado": [],
+     "peso": 0.9,
+     "dims": {
+      "altura": 5.0,
+      "largura": 11.0,
+      "comprimento": 20.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-corinhos-avivados-3-0-960.webp",
+       "thumb": "/img/p/kit-corinhos-avivados-3-0-480.webp",
+       "w": 960,
+       "h": 662,
+       "fundo": "transparente"
+      }
+     ]
+    },
+    {
+     "id": "kit-corinhos-avivados--10",
+     "nome": "10 unidades",
+     "preco": 150.0,
+     "atacado": [
+      {
+       "min": 2,
+       "preco": 145.0
+      }
+     ],
+     "peso": 2.09,
+     "dims": {
+      "altura": 6.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-corinhos-avivados-10-0-960.webp",
+       "thumb": "/img/p/kit-corinhos-avivados-10-0-480.webp",
+       "w": 960,
+       "h": 748,
+       "fundo": "foto"
+      }
+     ]
+    },
+    {
+     "id": "kit-corinhos-avivados--20",
+     "nome": "20 unidades",
+     "preco": 250.0,
+     "atacado": [],
+     "peso": 4.2,
+     "dims": {
+      "altura": 12.0,
+      "largura": 17.0,
+      "comprimento": 22.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/kit-corinhos-avivados-20-0-960.webp",
+       "thumb": "/img/p/kit-corinhos-avivados-20-0-480.webp",
+       "w": 928,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 45.0,
+   "precoMax": 250.0
+  },
+  {
+   "slug": "box-pregador",
+   "nome": "Box Pregador",
+   "categoria": "kits",
+   "subtitulo": "5 livros e, de brinde, o curso básico O Pregador e a Pregação",
+   "descricao": [
+    "Kit com cinco livros para quem prega e ensina a Palavra, acompanhado do curso básico O Pregador e a Pregação como brinde."
+   ],
+   "ficha": [],
+   "novo": false,
+   "destaque": false,
+   "variantes": [
+    {
+     "id": "box-pregador",
+     "nome": null,
+     "preco": 150.0,
+     "atacado": [],
+     "peso": 1.6,
+     "dims": {
+      "altura": 12.0,
+      "largura": 17.0,
+      "comprimento": 23.0
+     },
+     "gtin": null,
+     "imagens": [
+      {
+       "src": "/img/p/box-pregador-0-960.webp",
+       "thumb": "/img/p/box-pregador-0-480.webp",
+       "w": 888,
+       "h": 960,
+       "fundo": "branco"
+      }
+     ]
+    }
+   ],
+   "extras": [],
+   "precoMin": 150.0,
+   "precoMax": 150.0
+  }
+ ]
+}

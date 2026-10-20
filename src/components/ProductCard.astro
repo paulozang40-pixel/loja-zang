@@ -1,0 +1,25 @@
+---
+import { type Produto, brl, nomeCategoria, urlProduto, imagemPrincipal } from '../lib/loja';
+interface Props { p: Produto; eager?: boolean }
+const { p, eager = false } = Astro.props;
+const img = imagemPrincipal(p);
+const unica = p.variantes.length === 1;
+const v = p.variantes[0];
+---
+<article class="card" data-cat={p.categoria} data-busca={`${p.nome} ${p.subtitulo ?? ''} ${nomeCategoria(p.categoria)} ${p.variantes.map((x) => x.nome ?? '').join(' ')}`}>
+  {p.novo && <span class="tag">Novo</span>}
+  <div class={`stage f-${img.fundo}`}>
+    <img src={img.thumb} width={Math.round(img.w / 2)} height={Math.round(img.h / 2)} alt={`Capa de ${p.nome}`} loading={eager ? 'eager' : 'lazy'} decoding="async">
+  </div>
+  <span class="cat">{nomeCategoria(p.categoria)}</span>
+  <h3><a href={urlProduto(p)}>{p.nome}</a></h3>
+  <div class="row">
+    <span class="price">
+      {!unica && p.precoMin !== p.precoMax && <small>a partir de</small>}
+      {brl(p.precoMin)}
+    </span>
+    {unica
+      ? <button class="btn btn-ink" type="button" data-add={v.id} aria-label={`Adicionar ${p.nome} ao carrinho`}><svg class="ico"><use href="#i-plus"/></svg>Adicionar</button>
+      : <a class="btn btn-line" href={urlProduto(p)} aria-label={`Escolher opção de ${p.nome}`}>Escolher</a>}
+  </div>
+</article>

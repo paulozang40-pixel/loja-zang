@@ -1,0 +1,32 @@
+---
+import Texto from '../layouts/Texto.astro';
+import { LOJA } from '../lib/loja';
+---
+<Texto title="Política de privacidade" description="Como a Zang Editora Cristã trata os seus dados pessoais, de acordo com a LGPD.">
+  <p>Esta política explica como a {LOJA.nome} (CNPJ {LOJA.cnpj}) trata os seus dados pessoais neste site, de acordo com a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+  <h2>Quais dados coletamos</h2>
+  <ul>
+    <li>Na compra: nome, e-mail, telefone e endereço de entrega.</li>
+    <li>No pagamento: os dados do cartão, Pix ou boleto são informados diretamente ao Mercado Pago. Nós não recebemos nem guardamos dados de cartão.</li>
+    <li>Na navegação: o carrinho e os seus dados de entrega ficam guardados apenas no seu próprio navegador, para facilitar a próxima compra. Você pode apagá-los limpando os dados do site no navegador.</li>
+  </ul>
+  <h2>Para que usamos</h2>
+  <ul>
+    <li>Processar o pagamento, separar e enviar o pedido.</li>
+    <li>Falar com você sobre o pedido (confirmação, rastreio, trocas).</li>
+    <li>Cumprir obrigações legais e fiscais.</li>
+  </ul>
+  <p>Não vendemos nem alugamos os seus dados, e não enviamos propaganda sem a sua autorização.</p>
+  <h2>Com quem compartilhamos</h2>
+  <ul>
+    <li>Mercado Pago, para processar o pagamento.</li>
+    <li>SuperFrete e Correios, para gerar a etiqueta e entregar o pedido.</li>
+    <li>Netlify, empresa que hospeda o site e guarda os registros dos pedidos.</li>
+  </ul>
+  <h2>Por quanto tempo guardamos</h2>
+  <p>Os dados dos pedidos ficam guardados pelo tempo exigido pela legislação fiscal e de defesa do consumidor (em geral, 5 anos). Depois disso, são apagados.</p>
+  <h2>Seus direitos</h2>
+  <p>Você pode pedir a qualquer momento para ver, corrigir ou apagar os seus dados (quando a lei permitir), ou tirar dúvidas sobre esta política, pelo e-mail {LOJA.email} ou pelo WhatsApp {LOJA.whatsappTexto}.</p>
+  <h2>Cookies</h2>
+  <p>Este site não usa cookies de propaganda. Usamos apenas o armazenamento do seu navegador para guardar o carrinho.</p>
+</Texto>

@@ -1,0 +1,25 @@
+{
+  "name": "loja-zang-editora",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Loja virtual da Zang Editora Cristã",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test tests/*.test.mjs",
+    "local": "astro build && node tests/servidor-local.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/bitter": "^5.3.0",
+    "@fontsource/figtree": "^5.3.0",
+    "@fontsource/oswald": "^5.3.0",
+    "@netlify/blobs": "^11.1.5",
+    "astro": "^5.18.2"
+  }
+}

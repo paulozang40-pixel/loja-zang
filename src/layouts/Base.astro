@@ -1,0 +1,73 @@
+---
+import '@fontsource/oswald/latin-500.css';
+import '@fontsource/oswald/latin-600.css';
+import '@fontsource/bitter/latin-400.css';
+import '@fontsource/bitter/latin-600.css';
+import '@fontsource/bitter/latin-700.css';
+import '@fontsource/figtree/latin-400.css';
+import '@fontsource/figtree/latin-500.css';
+import '@fontsource/figtree/latin-600.css';
+import '@fontsource/figtree/latin-700.css';
+import '../styles/global.css';
+import Sprite from '../components/Sprite.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import { LOJA, catalogoCliente } from '../lib/loja';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  jsonld?: object[];
+  semCarrinho?: boolean;
+}
+const { title, description = 'Livros cristãos, revistas de Escola Bíblica, hinários, corinhos e agendas da Zang Editora Cristã, do Pr. Paulo Zang. Pagamento por Pix, cartão ou boleto e envio para todo o Brasil.', image = '/img/og-zang.jpg', noindex = false, jsonld = [], semCarrinho = false } = Astro.props;
+const titulo = title ? `${title} | ${LOJA.nome}` : `${LOJA.nome} | Livros, revistas de EBD, hinários e agendas`;
+const canonical = new URL(Astro.url.pathname, LOJA.url).href;
+const ogImage = new URL(image, LOJA.url).href;
+const verificacao = import.meta.env.PUBLIC_GOOGLE_VERIFICACAO;
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{titulo}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  {noindex && <meta name="robots" content="noindex, nofollow">}
+  <meta name="theme-color" content="#14213D">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content={LOJA.nome}>
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content={titulo}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={ogImage}>
+  <meta name="twitter:card" content="summary_large_image">
+  {verificacao && <meta name="google-site-verification" content={verificacao}>}
+  {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+</head>
+<body>
+  <Sprite />
+  <a class="sr" href="#conteudo">Ir para o conteúdo</a>
+  <Header />
+  <main id="conteudo">
+    <slot />
+  </main>
+  <Footer />
+  {!semCarrinho && <CartDrawer />}
+  <div class="toast" id="toast" role="status" aria-live="polite"><svg class="ico"><use href="#i-check"/></svg><img alt="" hidden><span id="toastMsg"></span></div>
+  <script type="application/json" id="catalogo-cliente" set:html={JSON.stringify(catalogoCliente())} />
+  <script>
+    import '../scripts/carrinho.js';
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mnav');
+    btn?.addEventListener('click', () => { nav.hidden = !nav.hidden; btn.setAttribute('aria-expanded', String(!nav.hidden)); });
+  </script>
+</body>
+</html>

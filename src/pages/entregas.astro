@@ -1,0 +1,15 @@
+---
+import Texto from '../layouts/Texto.astro';
+import { LOJA } from '../lib/loja';
+---
+<Texto title="Prazos e entregas" description="Prazo de postagem, formas de envio e acompanhamento dos pedidos da Zang Editora Cristã.">
+  <h2>Postagem</h2>
+  <p>Postamos o pedido em até {LOJA.diasPostagem} dias úteis depois que o Mercado Pago confirma o pagamento. Pagamentos por Pix costumam ser confirmados na hora; boletos podem levar até 3 dias úteis para compensar.</p>
+  <h2>Formas de envio</h2>
+  <p>Enviamos de Cascavel (PR) para todo o Brasil com etiquetas da SuperFrete, pelos Correios (PAC, SEDEX e Mini Envios, conforme o tamanho do pedido). O valor e o prazo de cada opção aparecem antes do pagamento, quando você digita o CEP.</p>
+  <p>O prazo mostrado já soma os dias de postagem ao prazo da transportadora. Ele começa a contar a partir da confirmação do pagamento.</p>
+  <h2>Acompanhamento</h2>
+  <p>Quando o pedido for postado, enviamos o código de rastreio pelo WhatsApp ou e-mail informado na compra. Você também pode ver a situação do pedido no link que aparece depois do pagamento.</p>
+  <h2>Endereço incompleto ou ausência</h2>
+  <p>Confira bem o endereço antes de pagar. Se a encomenda voltar por endereço incorreto ou por ninguém retirar na agência, combinamos com você um novo envio, com o frete pago novamente.</p>
+</Texto>
