@@ -38,6 +38,24 @@ export async function buscar(id) {
   return typeof v === 'string' ? JSON.parse(v) : v;
 }
 
+// Travas: garantem que o aviso e o envio para a SuperFrete aconteçam uma vez só,
+// mesmo quando o Mercado Pago manda várias notificações no mesmo segundo.
+const travasMemoria = new Set();
+let travasPromise = null;
+
+export async function reservar(chave) {
+  if (globalThis.process?.env?.PEDIDOS_MEMORIA === '1') {
+    if (travasMemoria.has(chave)) return false;
+    travasMemoria.add(chave);
+    return true;
+  }
+  if (!travasPromise) {
+    travasPromise = import('@netlify/blobs').then(({ getStore }) => getStore({ name: 'travas', consistency: 'strong' }));
+  }
+  const { modified } = await (await travasPromise).setJSON(chave, { em: new Date().toISOString() }, { onlyIfNew: true });
+  return modified;
+}
+
 export async function listar(limite = 300) {
   const s = await store();
   const { blobs } = await s.list();

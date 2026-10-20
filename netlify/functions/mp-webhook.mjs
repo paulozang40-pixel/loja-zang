@@ -1,5 +1,5 @@
 import { assinaturaValida, buscarPagamento, statusDoPagamento } from '../../server/mercadopago.mjs';
-import { buscar, salvar } from '../../server/pedidos.mjs';
+import { buscar, salvar, reservar } from '../../server/pedidos.mjs';
 import { adicionarAoCarrinho } from '../../server/superfrete.mjs';
 import { avisarPedidoPago } from '../../server/notificar.mjs';
 import { json, siteUrl } from '../../server/util.mjs';
@@ -38,14 +38,22 @@ export default async (req) => {
 
     if (pedido.status === 'pago') {
       const site = siteUrl(req);
-      if (!pedido.avisado) {
+      // reservar() só deixa passar a primeira notificação de cada pedido
+      if (!pedido.avisado && await reservar(`${pedido.id}-aviso`)) {
         try { await avisarPedidoPago(pedido, site); pedido.avisado = true; }
         catch (e) { console.error('aviso por e-mail', e.message); }
       }
-      if (!pedido.superfrete && (process.env.SUPERFRETE_ENVIAR_CARRINHO ?? 'sim') === 'sim' && !pedido.alerta) {
+      if (!pedido.superfrete && (process.env.SUPERFRETE_ENVIAR_CARRINHO ?? 'sim') === 'sim' && !pedido.alerta
+          && await reservar(`${pedido.id}-superfrete`)) {
         try { pedido.superfrete = await adicionarAoCarrinho(pedido); }
         catch (e) { console.error('carrinho SuperFrete', e.message); pedido.superfreteErro = e.message.slice(0, 300); }
       }
+    }
+    // Junta com o que outra notificação simultânea possa ter gravado
+    const atual = await buscar(pedido.id);
+    if (atual) {
+      for (const k of ['avisado', 'superfrete', 'superfreteErro', 'rastreio']) if (atual[k] && !pedido[k]) pedido[k] = atual[k];
+      if (['enviado', 'entregue'].includes(atual.status)) pedido.status = atual.status;
     }
     await salvar(pedido);
     return json({ ok: true });

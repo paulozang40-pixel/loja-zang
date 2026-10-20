@@ -208,3 +208,22 @@ test('status mostra só se as chaves existem, nunca o valor', async () => {
   const txt = JSON.stringify(j);
   assert.ok(!txt.includes('APP_USR-teste') && !txt.includes('sf-token-teste') && !txt.includes('senha-forte-123'));
 });
+
+test('webhook: notificações simultâneas geram um só aviso e um só envio', async () => {
+  const r0 = await checkout(post('https://x/api/checkout', { cliente: CLIENTE, itens: [{ id: 'voce-sabia', qtd: 1 }], freteServico: 1 }));
+  const { pedido } = await r0.json();
+  const p0 = await pedidos.buscar(pedido);
+  respostaMP = { id: 777, status: 'approved', external_reference: pedido, transaction_amount: p0.total, payment_method_id: 'pix' };
+  chamadas = [];
+  const req = (acao) => new Request('https://x/api/mp-webhook?data.id=777&type=payment', {
+    method: 'POST', body: JSON.stringify({ type: 'payment', action: acao, data: { id: '777' } }),
+    headers: { 'x-signature': assinar('777', 'r9'), 'x-request-id': 'r9' },
+  });
+  await Promise.all([webhook(req('payment.created')), webhook(req('payment.updated')), webhook(req('payment.updated'))]);
+  assert.equal(chamadas.filter((c) => c.url.endsWith('/api/v0/cart')).length, 1);
+  assert.equal(chamadas.filter((c) => c.url.endsWith('/formularios/')).length, 1);
+  const p = await pedidos.buscar(pedido);
+  assert.equal(p.status, 'pago');
+  assert.equal(p.avisado, true);
+  assert.equal(p.superfrete.id, 'SF123');
+});
