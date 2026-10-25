@@ -52,7 +52,7 @@ import Base from '../layouts/Base.astro';
         <td>${new Date(p.criadoEm).toLocaleString('pt-BR')}</td>
         <td><b>${esc(p.id)}</b>${p.alerta ? `<br><span class="err">${esc(p.alerta)}</span>` : ''}${p.superfrete ? '<br><span class="hint">Na SuperFrete</span>' : ''}${p.superfreteErro ? `<br><span class="err">SuperFrete: ${esc(p.superfreteErro)}</span>` : ''}</td>
         <td><b>${esc(c.nome)}</b><br>${esc(c.endereco)}, ${esc(c.numero)}${c.complemento ? ' - ' + esc(c.complemento) : ''}<br>${esc(c.bairro)} - ${esc(c.cidade)}/${esc(c.uf)} - ${esc(c.cep)}<br><a href="https://wa.me/55${esc(c.telefone.replace(/\D/g, ''))}" target="_blank" rel="noopener">${esc(c.telefone)}</a> · ${esc(c.email)}</td>
-        <td>${p.itens.map((i) => `${i.qtd}x ${esc(i.nome)}`).join('<br>')}<br><span class="hint">${esc(p.frete.nome)}: ${brl(p.frete.preco)}</span></td>
+        <td>${p.itens.map((i) => `${i.qtd}x ${esc(i.nome)}`).join('<br>')}<br>${p.cupom ? `<span class="hint">Cupom ${esc(p.cupom.codigo)}: - ${brl(p.cupom.desconto)}</span><br>` : ''}<span class="hint">${esc(p.frete.nome)}: ${brl(p.frete.preco)}</span></td>
         <td><b>${brl(p.total)}</b></td>
         <td><span class="st ${esc(p.status)}">${NOMES[p.status] || esc(p.status)}</span>
           <div style="display:grid;gap:6px;margin-top:8px">

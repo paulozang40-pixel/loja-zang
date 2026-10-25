@@ -11,6 +11,7 @@ import '@fontsource/figtree/latin-700.css';
 import '../styles/global.css';
 import Sprite from '../components/Sprite.astro';
 import Header from '../components/Header.astro';
+import { AVISO_CUPOM } from '../lib/loja';
 import Footer from '../components/Footer.astro';
 import CartDrawer from '../components/CartDrawer.astro';
 import { LOJA, catalogoCliente } from '../lib/loja';
@@ -55,6 +56,9 @@ const verificacao = import.meta.env.PUBLIC_GOOGLE_VERIFICACAO;
 <body>
   <Sprite />
   <a class="sr" href="#conteudo">Ir para o conteúdo</a>
+  {AVISO_CUPOM && (
+    <a class="promo" href="/produtos/"><svg class="ico"><use href="#i-tag"/></svg><span>{AVISO_CUPOM.texto} <b>{AVISO_CUPOM.codigo}</b></span></a>
+  )}
   <Header />
   <main id="conteudo">
     <slot />

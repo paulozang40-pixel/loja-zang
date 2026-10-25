@@ -47,6 +47,7 @@ import { LOJA } from '../lib/loja';
         ${p.rastreio ? `<p>Código de rastreio: <b>${esc(p.rastreio)}</b></p>` : ''}
         <div style="display:grid;gap:6px;border-top:1px solid var(--line);padding-top:12px">
           ${p.itens.map((i) => `<div class="r-linha"><span>${i.qtd} x ${esc(i.nome)}</span><b>${brl(i.subtotal)}</b></div>`).join('')}
+          ${p.cupom ? `<div class="r-linha"><span>Cupom ${esc(p.cupom.codigo)} (-${p.cupom.percentual}%)</span><b>- ${brl(p.cupom.desconto)}</b></div>` : ''}
           <div class="r-linha"><span>Frete (${esc(p.frete.nome)})</span><b>${brl(p.frete.preco)}</b></div>
           <div class="r-linha r-total"><span>Total</span><span>${brl(p.total)}</span></div>
         </div>

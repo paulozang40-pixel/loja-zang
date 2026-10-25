@@ -60,3 +60,9 @@ export function catalogoCliente() {
   }
   return out;
 }
+
+// Faixa no topo do site anunciando um cupom. Para tirar, troque por: null
+export const AVISO_CUPOM: { texto: string; codigo: string } | null = {
+  texto: 'Lançamento do site: 15% de desconto em compras a partir de R$ 50 com o cupom',
+  codigo: 'LANCAMENTO15',
+};

@@ -12,6 +12,7 @@ export default async (req) => {
     criadoEm: p.criadoEm,
     itens: p.itens.map((l) => ({ nome: l.nome, qtd: l.qtd, subtotal: l.subtotal })),
     frete: { nome: p.frete.nome, preco: p.frete.preco, prazoMin: p.frete.prazoMin, prazoMax: p.frete.prazoMax },
+    cupom: p.cupom || null,
     total: p.total,
     rastreio: p.rastreio || null,
   });

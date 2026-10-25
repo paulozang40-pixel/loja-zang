@@ -67,6 +67,9 @@ p { margin: 0; }
 .btn-block { width: 100%; }
 
 /* Cabeçalho */
+.promo { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px 16px; background: var(--ink); color: var(--bg); font-size: .88rem; text-align: center; text-decoration: none; line-height: 1.35; }
+.promo b { letter-spacing: .06em; background: color-mix(in srgb, var(--bg) 16%, transparent); padding: 1px 7px; border-radius: 6px; }
+.promo .ico { flex: none; }
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: var(--z-header); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; gap: 20px; height: 68px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: none; }
@@ -394,6 +397,13 @@ label.ship input { accent-color: var(--navy-2); width: 18px; height: 18px; }
 .r-item b { font-variant-numeric: tabular-nums; }
 .r-linha { display: flex; justify-content: space-between; gap: 12px; font-variant-numeric: tabular-nums; }
 .r-total { border-top: 1px solid var(--line); padding-top: 12px; font-weight: 700; font-size: 1.2rem; }
+.cupom { display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 12px; }
+.cupom label { font-weight: 600; font-size: .92rem; }
+.cupom-campo { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; }
+.cupom-campo input { text-transform: uppercase; letter-spacing: .04em; }
+.cupom .hint.ok { color: var(--ok); font-weight: 600; }
+.cupom .hint.erro { color: var(--erro); font-weight: 500; }
+.r-linha .r-desc { color: var(--ok); white-space: nowrap; }
 .aviso { border-radius: var(--r-field); background: var(--aviso-bg); padding: 12px 14px; font-size: .92rem; }
 .aviso.erro { background: color-mix(in srgb, var(--erro) 14%, var(--surface)); color: var(--ink); }
 @media (max-width: 900px) { .co { grid-template-columns: 1fr; } .resumo { position: static; order: -1; } }

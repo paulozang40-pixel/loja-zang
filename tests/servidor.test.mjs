@@ -227,3 +227,50 @@ test('webhook: notificações simultâneas geram um só aviso e um só envio', a
   assert.equal(p.avisado, true);
   assert.equal(p.superfrete.id, 'SF123');
 });
+
+test('cupom LANCAMENTO15: 15% nos produtos, mínimo de R$ 50 e total exato', async () => {
+  const { aplicarCupom } = await import('../server/cupons.mjs');
+  const { montarItens, ErroPedido } = await import('../server/catalogo.mjs');
+  const data = (await import('../src/data/produtos.json', { with: { type: 'json' } })).default;
+  const lista = (data.produtos || data).flatMap((p) => p.variantes);
+  const barata = lista.reduce((a, b) => (b.preco < a.preco ? b : a));
+  // abaixo do mínimo
+  const pouco = montarItens([{ id: barata.id, qtd: 1 }]);
+  assert.ok(pouco.subtotal < 50);
+  assert.throws(() => aplicarCupom('LANCAMENTO15', pouco.linhas, pouco.subtotal), (e) => e instanceof ErroPedido && /a partir de/.test(e.message));
+  // acima do mínimo, com acento e minúsculas
+  const qtd = Math.ceil(50 / barata.preco) + 1;
+  const m = montarItens([{ id: barata.id, qtd }]);
+  const c = aplicarCupom('lançamento15', m.linhas, m.subtotal);
+  assert.equal(c.codigo, 'LANCAMENTO15');
+  assert.ok(Math.abs(c.desconto - m.subtotal * 0.15) <= 0.01 * qtd);
+  const soma = c.linhas.reduce((s, l) => s + l.precoUnit * l.qtd, 0);
+  assert.ok(Math.abs(soma - c.subtotal) < 0.001);
+  assert.ok(Math.abs(c.subtotal + c.desconto - m.subtotal) < 0.001);
+  // sem código, sem cupom; código errado, erro
+  assert.equal(aplicarCupom('', m.linhas, m.subtotal), null);
+  assert.throws(() => aplicarCupom('NAOEXISTE', m.linhas, m.subtotal), ErroPedido);
+});
+
+test('checkout com cupom: desconto nos itens enviados ao Mercado Pago, frete cheio', async () => {
+  const antes = chamadas.length;
+  const r = await checkout(post('https://x/api/checkout', {
+    cliente: CLIENTE, itens: [{ id: 'a-realidade-do-inferno', qtd: 2 }], freteServico: 2, cupom: 'lancamento15',
+  }));
+  const j = await r.json();
+  assert.equal(r.status, 200, JSON.stringify(j));
+  const p = await pedidos.buscar(j.pedido);
+  assert.equal(p.cupom.codigo, 'LANCAMENTO15');
+  assert.equal(p.itens[0].precoUnit, Math.round(27.5 * 0.85 * 100) / 100);
+  const pref = chamadas.slice(antes).find((c) => c.url.endsWith('/checkout/preferences')).body;
+  const soma = pref.items.reduce((s, i) => s + i.unit_price * i.quantity, 0) + pref.shipments.cost;
+  assert.ok(Math.abs(soma - p.total) < 0.001);
+  assert.equal(pref.shipments.cost, p.frete.preco);
+  assert.ok(Math.abs(p.total - (p.subtotal - p.cupom.desconto + p.frete.preco)) < 0.001);
+});
+
+test('checkout com cupom abaixo do mínimo é recusado com a explicação', async () => {
+  const r = await checkout(post('https://x/api/checkout', { cliente: CLIENTE, itens: [{ id: 'a-realidade-do-inferno', qtd: 1 }], freteServico: 2, cupom: 'LANCAMENTO15' }));
+  assert.equal(r.status, 422);
+  assert.match((await r.json()).erro, /R\$\s?50,00/);
+});

@@ -9,6 +9,7 @@ export function resumoPedido(p) {
     `Pedido ${p.id} PAGO`,
     '',
     itens,
+    ...(p.cupom ? [`Cupom ${p.cupom.codigo} (-${p.cupom.percentual}%): - ${brl(p.cupom.desconto)} (já descontado nos itens)`] : []),
     `Frete (${p.frete.nome}): ${brl(p.frete.preco)}`,
     `Total: ${brl(p.total)}`,
     '',

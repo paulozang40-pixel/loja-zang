@@ -93,8 +93,17 @@ const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO R
         <h2 id="rTitulo">Resumo do pedido</h2>
         <div id="rItens" style="display:grid;gap:10px"></div>
         <div class="r-linha"><span>Subtotal</span><b id="rSub">R$ 0,00</b></div>
+        <div class="r-linha" id="rDescLinha" hidden><span id="rDescNome">Cupom</span><b id="rDesc" class="r-desc"></b></div>
         <div class="r-linha"><span>Frete</span><b id="rFrete">a calcular</b></div>
         <div class="r-linha r-total"><span>Total</span><span id="rTotal">R$ 0,00</span></div>
+        <div class="cupom">
+          <label for="cupom">Cupom de desconto</label>
+          <div class="cupom-campo">
+            <div class="input"><svg class="ico"><use href="#i-tag"/></svg><input id="cupom" name="cupom" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ex.: LANCAMENTO15" maxlength="30"></div>
+            <button class="btn" type="button" id="aplicarCupom">Aplicar</button>
+          </div>
+          <p class="hint" id="cupomMsg" aria-live="polite"></p>
+        </div>
         <div id="erroGeral" class="aviso erro" role="alert" hidden></div>
         <button class="btn btn-gold btn-block" type="submit" id="pagar"><svg class="ico"><use href="#i-lock"/></svg>Pagar com Mercado Pago</button>
         <p class="hint" style="text-align:center">Pix, cartão de crédito ou boleto. Você será levado ao site do Mercado Pago para pagar com segurança.</p>
@@ -114,6 +123,8 @@ const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO R
   const CAMPOS = ['nome', 'email', 'telefone', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'cidade', 'uf'];
   const KEY = 'zang-cliente-v1';
   let opcoes = [], cotadoPara = '';
+  let cupom = null; // { codigo, percentual, desconto }
+  const CUPOM_KEY = 'zang-cupom-v1';
 
   if (!itens().length) { form.hidden = true; $('#vazio').hidden = false; }
 
@@ -130,7 +141,10 @@ const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO R
     $('#rSub').textContent = brl(sub);
     const sel = opcoes.find((o) => String(o.servico) === form.querySelector('input[name=frete]:checked')?.value);
     $('#rFrete').textContent = sel ? brl(sel.preco) : 'a calcular';
-    $('#rTotal').textContent = brl(sub + (sel ? sel.preco : 0));
+    const desc = cupom ? cupom.desconto : 0;
+    $('#rDescLinha').hidden = !cupom;
+    if (cupom) { $("#rDescNome").textContent = `Desconto (${cupom.percentual}%)`; $('#rDesc').textContent = '- ' + brl(desc); }
+    $('#rTotal').textContent = brl(sub - desc + (sel ? sel.preco : 0));
   }
 
   function erro(campo, msg) {
@@ -175,7 +189,32 @@ const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO R
   }
   form.cep.addEventListener('input', () => { if (form.cep.value.replace(/\D/g, '').length === 8) buscarCep(); });
   form.addEventListener('change', (e) => { if (e.target.name === 'frete') resumo(); });
-  document.addEventListener('carrinho:mudou', () => { if (!itens().length) { form.hidden = true; $('#vazio').hidden = false; } cotadoPara = ''; calcular(); resumo(); });
+  document.addEventListener('carrinho:mudou', () => { if (!itens().length) { form.hidden = true; $('#vazio').hidden = false; } cotadoPara = ''; calcular(); if (cupom) aplicarCupom(cupom.codigo, true); resumo(); });
+
+  // Cupom de desconto: conferido no servidor, que também recalcula tudo no pagamento
+  async function aplicarCupom(codigo, silencioso = false) {
+    const msg = $('#cupomMsg');
+    codigo = String(codigo || '').trim();
+    if (!codigo) { cupom = null; msg.textContent = ''; try { localStorage.removeItem(CUPOM_KEY); } catch {} resumo(); return; }
+    if (!silencioso) msg.textContent = 'Conferindo o cupom...';
+    msg.classList.remove('ok', 'erro');
+    try {
+      const r = await fetch('/api/cupom', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ codigo, itens: paraServidor() }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.erro || 'Não foi possível conferir o cupom.');
+      cupom = j; form.cupom.value = j.codigo;
+      msg.textContent = `Cupom aplicado: ${j.percentual}% de desconto nos produtos.`; msg.classList.add('ok');
+      try { localStorage.setItem(CUPOM_KEY, j.codigo); } catch {}
+    } catch (err) {
+      cupom = null; msg.textContent = err.message; msg.classList.add('erro');
+    }
+    resumo();
+  }
+  $('#aplicarCupom').addEventListener('click', () => aplicarCupom(form.cupom.value));
+  form.cupom.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); aplicarCupom(form.cupom.value); } });
+  // Cupom vindo do link (?cupom=CODIGO) ou usado antes neste navegador
+  { const doLink = new URLSearchParams(location.search).get('cupom'); let salvo = ''; try { salvo = localStorage.getItem(CUPOM_KEY) || ''; } catch {}
+    const c = doLink || salvo; if (c && itens().length) { form.cupom.value = c; aplicarCupom(c, true); } }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -195,11 +234,12 @@ const UFS = 'AC AL AP AM BA CE DF ES GO MA MT MS MG PA PB PR PE PI RJ RN RS RO R
     try { localStorage.setItem(KEY, JSON.stringify(dados)); } catch {}
     const btn = $('#pagar'); btn.disabled = true; btn.lastChild.textContent = 'Abrindo o Mercado Pago...';
     try {
-      const r = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cliente: dados, itens: paraServidor(), freteServico: Number(frete.value) }) });
+      const r = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cliente: dados, itens: paraServidor(), freteServico: Number(frete.value), cupom: cupom?.codigo || '' }) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) {
         if (j.campos) { Object.entries(j.campos).forEach(([c, m]) => erro(c, m)); }
         if (r.status === 409) { cotadoPara = ''; calcular(); }
+        if (r.status === 422 && cupom) { cupom = null; resumo(); }
         throw new Error(j.erro || 'Não foi possível abrir o pagamento agora.');
       }
       location.href = j.url;

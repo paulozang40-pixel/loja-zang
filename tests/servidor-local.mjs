@@ -34,6 +34,7 @@ globalThis.fetch = async (url, opt) => {
 
 const rotas = {
   '/api/frete': (await import('../netlify/functions/frete.mjs')).default,
+  '/api/cupom': (await import('../netlify/functions/cupom.mjs')).default,
   '/api/checkout': (await import('../netlify/functions/checkout.mjs')).default,
   '/api/pedido': (await import('../netlify/functions/pedido-status.mjs')).default,
   '/api/mp-webhook': (await import('../netlify/functions/mp-webhook.mjs')).default,
